@@ -1,0 +1,496 @@
+================================================================================
+INCUBRIX DISTRIBUTION NETWORK — SWAGGER UI COMPLETE TESTING GUIDE
+================================================================================
+
+Open your browser and navigate to:
+http://localhost:8000/docs
+
+Ensure your Docker container is running:
+docker compose up -d
+
+--------------------------------------------------------------------------------
+STEP 1: HEALTH & READINESS PROBES
+--------------------------------------------------------------------------------
+1. Expand "GET /health"
+   - Click "Try it out" -> Click "Execute"
+   - Expected Status: 200 OK
+   - Expected Response: {"status": "ok", "app": "Distribution: Long-Tail Destination Network"}
+
+2. Expand "GET /ready"
+   - Click "Try it out" -> Click "Execute"
+   - Expected Status: 200 OK
+   - Expected Response: {"status": "ready", "ready": true, "environment": "development"}
+
+
+--------------------------------------------------------------------------------
+STEP 2: DESTINATION CATALOGUE (MULTI-DESTINATION SUPPORT)
+--------------------------------------------------------------------------------
+1. Expand "GET /connector/v1/destinations"
+   - Click "Try it out" -> Click "Execute"
+   - Lists all configured destinations (Discourse, Lemmy, Dev.to, Ghost, Webhook, Assisted).
+
+2. Expand "GET /connector/v1/destinations/{destination_id}"
+   - Click "Try it out"
+   - Enter destination_id: discourse_dev_forum
+   - Click "Execute"
+   - Shows rules: max_length: 20000, weekly_limit: 5, allow_links: true.
+
+
+--------------------------------------------------------------------------------
+STEP 3: 12-STEP AUTOMATED CERTIFICATION HARNESS
+--------------------------------------------------------------------------------
+Runs the full 12-step certification (validate -> publish -> live URL check -> status -> delete test post within 10 minutes -> save evidence):
+
+1. Expand "POST /connector/v1/destinations/{destination_id}/certify"
+2. Click "Try it out"
+3. Enter destination_id: discourse_dev_forum
+   (You can also try: lemmy_technology or devto_engineering)
+4. Click "Execute"
+5. Expected Status: 200 OK
+6. Expected Response:
+   {
+     "destination_id": "discourse_dev_forum",
+     "status": "SUCCESS",
+     "certified": true,
+     "cleanup_verified": true,
+     "duration_ms": 0.45
+   }
+   * Auditable timestamped record is automatically saved to the EVIDENCE/ directory.
+
+
+--------------------------------------------------------------------------------
+STEP 4: MACHINE-READABLE CONNECTOR MANIFESTS
+--------------------------------------------------------------------------------
+1. Expand "GET /connector/v1/{connector_key}/manifest"
+2. Click "Try it out"
+3. Enter connector_key: discourse
+   (Try also: lemmy, devto, ghost, webhook, assisted, mock, mastodon, hashnode, slack)
+4. Click "Execute"
+5. Returns tier, limits, supported methods, and error code maps.
+
+
+--------------------------------------------------------------------------------
+STEP 5: TESTING THE 6 CORE CONNECTORS (INTERACTIVE BROWSER / SWAGGER UI)
+--------------------------------------------------------------------------------
+
+Navigate to http://localhost:8000/docs.
+
+1. DISCOURSE CONNECTOR
+   - Endpoint: POST /connector/v1/{connector_key}/{method}
+   - Parameters:
+     * connector_key: discourse
+     * method: publish
+   - Request Body:
+     {
+       "content": {
+         "title": "Announcing Open Source Distribution Gateway",
+         "text": "We are excited to share our new distribution connector architecture for developer communities.",
+         "simulation": true
+       }
+     }
+   - Click "Execute"
+   - Expected Status: 200 OK
+   - Expected Response:
+     {
+       "success": true,
+       "id": "sim_disc_post",
+       "platform_post_id": "sim_disc_post",
+       "url": "https://meta.discourse.org/t/topic/sim_disc_post",
+       "live_url": "https://meta.discourse.org/t/topic/sim_disc_post",
+       "status": "published",
+       "simulation": true,
+       "destination": "discourse"
+     }
+
+2. LEMMY CONNECTOR
+   - Endpoint: POST /connector/v1/{connector_key}/{method}
+   - Parameters:
+     * connector_key: lemmy
+     * method: publish
+   - Request Body:
+     {
+       "content": {
+         "title": "Decentralized Long-Tail Network Launch",
+         "text": "Exploring federated distribution using Lemmy community posts.",
+         "simulation": true
+       }
+     }
+   - Click "Execute"
+   - Expected Status: 200 OK
+   - Expected Response:
+     {
+       "success": true,
+       "id": "sim_lemmy_post",
+       "platform_post_id": "sim_lemmy_post",
+       "url": "https://lemmy.world/post/sim_lemmy_post",
+       "live_url": "https://lemmy.world/post/sim_lemmy_post",
+       "status": "published",
+       "simulation": true,
+       "destination": "lemmy"
+     }
+
+3. DEV.TO (FOREM) CONNECTOR
+   - Endpoint: POST /connector/v1/{connector_key}/{method}
+   - Parameters:
+     * connector_key: devto
+     * method: publish
+   - Request Body:
+     {
+       "content": {
+         "title": "Architecting Scalable Microservices",
+         "text": "A deep dive into idempotency, safe retries, and OpenAPI 3.1.",
+         "metadata": {
+           "tags": ["python", "fastapi"]
+         }
+       },
+       "connection": {
+         "simulation": true
+       }
+     }
+   - Click "Execute"
+   - Expected Status: 200 OK
+   - Expected Response:
+     {
+       "platform_post_id": "sim_devto_post",
+       "url": "https://dev.to/simulated/sim_devto_post",
+       "status": "published",
+       "metadata": {
+         "simulation": true,
+         "connector": "devto"
+       },
+       "id": "sim_devto_post",
+       "live_url": "https://dev.to/simulated/sim_devto_post",
+       "success": true,
+       "destination": "devto"
+     }
+
+4. GHOST CMS CONNECTOR
+   - Endpoint: POST /connector/v1/{connector_key}/{method}
+   - Parameters:
+     * connector_key: ghost
+     * method: publish
+   - Request Body:
+     {
+       "content": {
+         "title": "Publishing Weekly Engineering Highlights",
+         "text": "This week we shipped resilient timeout retries and Docker Compose support."
+       },
+       "connection": {
+         "simulation": true
+       }
+     }
+   - Click "Execute"
+   - Expected Status: 200 OK
+   - Expected Response:
+     {
+       "platform_post_id": "sim_ghost_post",
+       "url": "http://ghost:2368/simulated-post-sim_ghost_post",
+       "status": "published",
+       "metadata": {
+         "simulation": true,
+         "connector": "ghost"
+       },
+       "id": "sim_ghost_post",
+       "live_url": "http://ghost:2368/simulated-post-sim_ghost_post",
+       "success": true,
+       "destination": "ghost"
+     }
+
+5. GENERIC HMAC-SIGNED WEBHOOK CONNECTOR
+   - Endpoint: POST /connector/v1/{connector_key}/{method}
+   - Parameters:
+     * connector_key: webhook
+     * method: publish
+   - Request Body:
+     {
+       "content": {
+         "text": "Broadcast payload syndicated to partner destination network"
+       },
+       "connection": {
+         "secret": "test_hmac_secret_123",
+         "simulation": true
+       }
+     }
+   - Click "Execute"
+   - Expected Status: 200 OK
+   - Expected Response:
+     {
+       "platform_post_id": "sim_webhook_event",
+       "url": "https://webhook.partner.local/events/sim_webhook_event",
+       "status": "delivered",
+       "metadata": {
+         "simulation": true,
+         "connector": "webhook"
+       },
+       "id": "sim_webhook_event",
+       "live_url": "https://webhook.partner.local/events/sim_webhook_event",
+       "success": true,
+       "destination": "webhook"
+     }
+
+6. ASSISTED CONNECTOR (READY-TO-POST PACK)
+   - Endpoint: POST /connector/v1/assisted/build_assist_pack
+     (Or use POST /connector/v1/assisted/publish)
+   - Request Body:
+     {
+       "content": {
+         "title": "Show HN: IncuBrix Gateway",
+         "text": "A content distribution gateway across long-tail destinations.",
+         "metadata": {
+           "contains_ai": true
+         }
+       },
+       "destination": {
+         "name": "Hacker News",
+         "submission_url": "https://news.ycombinator.com/submit"
+       }
+     }
+   - Click "Execute"
+   - Expected Status: 200 OK
+   - Expected Response:
+     {
+       "destination_id": null,
+       "destination_name": "Hacker News",
+       "deep_link": "https://news.ycombinator.com/submit",
+       "caption": "A content distribution gateway across long-tail destinations.",
+       "title": "Show HN: IncuBrix Gateway",
+       "files": [],
+       "checklist": [
+         "Review destination rules for 'Hacker News'.",
+         "Include required AI-assistance disclosure notice.",
+         "Ensure disclosure and formatting standards match community guidelines.",
+         "Verify no self-promotional spam flags are triggered.",
+         "Confirm media files or attachments are downloaded.",
+         "Paste formatted text into the destination submission portal.",
+         "Mark assist pack as completed after manual post submission."
+       ],
+       "status": "human_action_required"
+     }
+
+
+--------------------------------------------------------------------------------
+STEP 6: TESTING IDEMPOTENCY & SAFE RETRIES (ZERO DUPLICATES)
+--------------------------------------------------------------------------------
+1. Expand "POST /connector/v1/{connector_key}/{method}"
+2. Set connector_key: mock, method: publish
+3. In Header parameter "Idempotency-Key", enter:
+   test-idem-key-999
+4. In Request Body:
+   {
+     "text": "First attempt with unique idempotency key"
+   }
+5. Click "Execute" -> Returns 200 OK with generated post ID (e.g. mock_12345).
+6. Click "Execute" a SECOND time (same key, same text):
+   -> Notice it returns the exact same post ID instantly from cache (no duplicate created).
+7. Change text to "Altered conflicting text" with the SAME Idempotency-Key:
+   -> Click "Execute" -> Returns 409 Conflict (IDEMPOTENCY_CONFLICT).
+
+
+--------------------------------------------------------------------------------
+STEP 7: ASYNCHRONOUS BACKGROUND JOBS (HTTP 202 ACCEPTED)
+--------------------------------------------------------------------------------
+1. Expand "POST /connector/v1/{connector_key}/{method}"
+2. Set connector_key: mock, method: publish
+3. Set Query parameter async: true
+4. In Request Body:
+   {
+     "text": "Asynchronous background execution demonstration"
+   }
+5. Click "Execute" -> Returns 202 Accepted with a job_id (e.g. job_1729188000abcd).
+6. Copy the job_id.
+7. Expand "GET /connector/v1/jobs/{job_id}"
+8. Paste the job_id -> Click "Execute"
+   -> Shows status: succeeded with execution duration and published post details!
+
+
+--------------------------------------------------------------------------------
+STEP 8: POLICY & RULE VIOLATIONS (APPENDIX A CANONICAL ERROR CODES)
+--------------------------------------------------------------------------------
+1. Exceed Character Limit:
+   - connector_key: mock, method: publish
+   - Submit text exceeding 280 characters.
+   - Click "Execute" -> Returns 400 Bad Request with code: DEST_SPEC_VIOLATION.
+
+2. Sliding-Window Frequency Cap:
+   - connector_key: mock, method: publish
+   - Click "Execute" 6 times in a row quickly (mock limit is 5 req/min).
+   - The 6th request returns 429 Too Many Requests with code: DEST_RULE_FREQUENCY_CAP.
+
+
+--------------------------------------------------------------------------------
+STEP 9: ADVANCED CONTENT TAILORING ENGINE
+--------------------------------------------------------------------------------
+1. Expand "POST /connector/v1/tailor"
+2. Click "Try it out"
+3. Request Body for Forum Discussion:
+   {
+     "text": "Check out our new framework release for building high-scale Python microservices.",
+     "destination_type": "forum",
+     "title": "Scaling Python Services in 2026",
+     "canonical_url": "https://incubrix.io/blog/scaling-python",
+     "tags": ["Python", "Backend", "Architecture"]
+   }
+4. Click "Execute"
+5. Expected Response:
+   {
+     "tailored_text": "Scaling Python Services in 2026\n\nCheck out our new framework release for building high-scale Python microservices.\n\nWhat are your thoughts on this approach? Has anyone faced similar challenges?",
+     "destination_type": "forum",
+     "char_count": 188,
+     "tags": ["python", "backend", "architecture"],
+     "canonical_url": "https://incubrix.io/blog/scaling-python"
+   }
+   * Notice the automated forum discussion prompt appended and tags lowercased.
+
+
+--------------------------------------------------------------------------------
+STEP 10: 1-5 AUDIENCE RELEVANCE SCORER
+--------------------------------------------------------------------------------
+1. Expand "POST /connector/v1/score_relevance"
+2. Click "Try it out"
+3. Request Body:
+   {
+     "text": "Announcing our new generative AI agent for video creators and automated SaaS workflow marketing.",
+     "audience_pillar": "ai"
+   }
+4. Click "Execute"
+5. Expected Response:
+   {
+     "score": 5,
+     "audience_pillar": "ai",
+     "matched_keywords": ["ai", "agent"],
+     "reasoning": "High relevance: matched 2 pillar keywords (ai, agent) with high-density alignment."
+   }
+   (Try other pillars: video, marketing, saas, creators, founders)
+
+
+--------------------------------------------------------------------------------
+STEP 11: CSV CATALOGUE IMPORT & FAST INGESTION (1,000+ ROWS)
+--------------------------------------------------------------------------------
+1. Via Swagger:
+   - Expand "POST /connector/v1/catalogue/import"
+   - Click "Try it out"
+   - Upload file `data/destinations_sample_1000.csv`
+   - Set check_reachability: false
+   - Click "Execute"
+   - Processed in milliseconds: returns total_rows: 1000, valid_rows: 1000, invalid_rows: 0.
+
+2. Via Standalone CLI:
+   Run from terminal:
+   python import_catalogue.py --csv data/destinations_sample_1000.csv --output import_report.json
+   -> Successfully ingested 1000 records in ~0.02s (<5 minutes requirement exceeded).
+
+
+--------------------------------------------------------------------------------
+STEP 12: TESTING ADVANCED CONNECTORS (HASHNODE, SLACK, MAILCHIMP)
+--------------------------------------------------------------------------------
+1. HASHNODE CONNECTOR:
+   - Endpoint: POST /connector/v1/{connector_key}/{method}
+   - connector_key: hashnode, method: publish
+   - Request Body:
+     {
+       "content": {
+         "title": "Mastering Microservice Architecture with IncuBrix",
+         "text": "A deep dive into high-throughput event processing and decentralized distribution nodes.",
+         "tags": ["dev", "architecture"],
+         "simulation": true
+       }
+     }
+   - Returns 200 OK with live Hashnode simulation article URL:
+     https://engineering.incubrix.dev/sim_hashnode_...
+
+2. SLACK INCOMING WEBHOOK CONNECTOR:
+   - Endpoint: POST /connector/v1/{connector_key}/{method}
+   - connector_key: slack, method: publish
+   - Request Body:
+     {
+       "content": {
+         "title": "Release v2.0 Alert",
+         "text": "New production release has deployed successfully across all destination clusters.",
+         "simulation": true
+       }
+     }
+   - Returns 200 OK with live Slack message ID and simulation permalink.
+
+3. MAILCHIMP / NEWSLETTER CONNECTOR:
+   - Endpoint: POST /connector/v1/{connector_key}/{method}
+   - connector_key: mailchimp, method: publish
+   - Request Body:
+     {
+       "content": {
+         "title": "IncuBrix Developer Dispatch #42",
+         "text": "Weekly newsletter roundup covering long-tail community publishing, Ghost 5 integration, and Lemmy federated nodes.",
+         "simulation": true
+       }
+     }
+   - Returns 200 OK with campaign post ID and live web view archive URL:
+     https://mailchi.mp/campaigns/sim_mc_...
+
+
+--------------------------------------------------------------------------------
+STEP 13: AI RULES PROPOSE & CONFIRM WORKFLOW
+--------------------------------------------------------------------------------
+1. PROPOSE RULES FROM UNSTRUCTURED GUIDELINES:
+   - Endpoint: POST /connector/v1/rules/propose
+   - Request Body:
+     {
+       "destination_id": "discourse_devops_guild",
+       "guidelines_text": "Welcome to DevOps Guild! Strictly no self-promotional spam or commercial ads. External documentation links are allowed. Limit posts to at most 3 per week to avoid dominating the feed. Disclose AI generated snippets."
+     }
+   - Returns 200 OK with extracted policy candidates:
+     allow_self_promotion: false, allow_links: true, weekly_frequency_cap: 3, require_ai_disclosure: true
+
+2. CONFIRM AND PERSIST POLICIES WITH AUDIT TRAIL:
+   - Endpoint: POST /connector/v1/rules/confirm
+   - Request Body:
+     {
+       "destination_id": "discourse_devops_guild",
+       "confirmed_by": "lead_moderator@incubrix.dev",
+       "proposed_rules": {
+         "allow_self_promotion": false,
+         "allow_links": true,
+         "weekly_frequency_cap": 3,
+         "require_ai_disclosure": true
+       }
+     }
+   - Returns 200 OK with status: "confirmed", human_confirmed: true, and audit timestamp.
+
+
+--------------------------------------------------------------------------------
+STEP 14: DESTINATION RECOMMENDER ENGINE & BENCHMARK
+--------------------------------------------------------------------------------
+1. RECOMMEND BEST-FIT DESTINATIONS:
+   - Endpoint: POST /connector/v1/recommend
+   - Request Body:
+     {
+       "title": "Production Deployment of Federated Nodes",
+       "text": "Comprehensive analysis of federated consensus and queue backoff techniques across decentralized networks.",
+       "tags": ["devops", "cloud", "docker"],
+       "audience_pillar": "Engineering",
+       "is_promotional": false,
+       "limit": 5
+     }
+   - Returns 200 OK with ranked destinations, fit scores, and transparent rationale.
+
+2. PRECISION@10 BENCHMARK:
+   - Endpoint: GET /connector/v1/recommend/benchmark?k=10
+   - Returns 200 OK with evaluated precision@10 score (1.00 on test benchmark, exceeding >= 0.80 target).
+
+
+--------------------------------------------------------------------------------
+STEP 15: 150 REAL RESEARCHED DESTINATIONS CATALOGUE
+--------------------------------------------------------------------------------
+1. Ingest/Query Real Catalogue (data/destinations_real_150.csv):
+   - Endpoint: GET /catalogue/destinations
+   - All 150 researched destinations are loaded with complete 20-column schema across Discourse, Lemmy, Dev.to, Hashnode, Ghost, Slack, and Mailchimp.
+
+
+--------------------------------------------------------------------------------
+STEP 16: BATCH RUNNER CLI (INTEGRATION STANDARD 10)
+--------------------------------------------------------------------------------
+Run automated batch processing across all 14 test inputs against the live service:
+   python batch_runner.py --input-dir test_inputs --output-dir test_outputs --api-url http://localhost:8000
+
+Results:
+   Processes test payloads for all 14 scenarios and produces:
+   Summary: 14 passed, 0 failed out of 14 tests (100.0% success).
+================================================================================
