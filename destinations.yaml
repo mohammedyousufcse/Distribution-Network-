@@ -1,0 +1,239 @@
+# IncuBrix Configuration-Driven Destination Catalogue
+# Stores destination profiles, policies, capabilities, and certification status.
+# Secrets are referenced via environment variable names (e.g. env:DEVTO_API_KEY) and NEVER stored directly.
+
+destinations:
+  - id: "discourse_dev_forum"
+    connector_key: "discourse"
+    name: "Developer Discourse Community"
+    audience: "Software developers, open source contributors"
+    base_url: "https://meta.discourse.org"
+    surface: "topic"
+    content_type: "markdown"
+    auth_ref: "env:DISCOURSE_API_KEY"
+    auth_user_ref: "env:DISCOURSE_API_USERNAME"
+    rate_limits:
+      requests_per_minute: 20
+    format_limits:
+      max_title_length: 255
+      min_title_length: 5
+      max_body_length: 32000
+      min_body_length: 20
+    posting_rules:
+      max_posts_per_window: 5
+      window_seconds: 3600
+      weekly_frequency_cap: 10
+      allow_self_promotion: false
+      allow_links: true
+      require_ai_disclosure: true
+      min_text_length: 20
+    capabilities:
+      publish: true
+      get_status: true
+      delete: true
+      fetch_metrics: true
+    certification_status: "certified"
+    evidence_ref: "EVIDENCE/discourse_cert_20261017.json"
+
+  - id: "discourse_gaming_hub"
+    connector_key: "discourse"
+    name: "Gaming Discussion Hub"
+    audience: "Game designers, players, indie developers"
+    base_url: "https://gaming.discourse.local"
+    surface: "topic"
+    content_type: "markdown"
+    auth_ref: "env:DISCOURSE_GAMING_API_KEY"
+    auth_user_ref: "env:DISCOURSE_GAMING_USER"
+    rate_limits:
+      requests_per_minute: 10
+    format_limits:
+      max_title_length: 150
+      min_title_length: 3
+      max_body_length: 15000
+      min_body_length: 10
+    posting_rules:
+      max_posts_per_window: 2
+      window_seconds: 3600
+      weekly_frequency_cap: 5
+      allow_self_promotion: true
+      allow_links: false
+      require_ai_disclosure: false
+      min_text_length: 10
+    capabilities:
+      publish: true
+      get_status: true
+      delete: true
+      fetch_metrics: true
+    certification_status: "pending"
+    evidence_ref: null
+
+  - id: "lemmy_technology"
+    connector_key: "lemmy"
+    name: "Lemmy Technology Community"
+    audience: "Tech enthusiasts and open source advocates"
+    base_url: "https://lemmy.world"
+    instance_url: "https://lemmy.world"
+    community_name: "technology"
+    surface: "community_post"
+    content_type: "markdown"
+    auth_ref: "env:LEMMY_AUTH_TOKEN"
+    rate_limits:
+      requests_per_minute: 30
+    format_limits:
+      max_name_length: 200
+      max_body_length: 10000
+    posting_rules:
+      max_posts_per_window: 3
+      window_seconds: 3600
+      weekly_frequency_cap: 7
+      allow_self_promotion: false
+      allow_links: true
+      require_ai_disclosure: true
+    capabilities:
+      publish: true
+      get_status: true
+      delete: true
+      fetch_metrics: true
+    certification_status: "certified"
+    evidence_ref: "EVIDENCE/lemmy_cert_20261017.json"
+
+  - id: "lemmy_programming"
+    connector_key: "lemmy"
+    name: "Lemmy Programming Group"
+    audience: "Programmers and computer science learners"
+    base_url: "http://lemmy:8536"
+    instance_url: "http://lemmy:8536"
+    community_name: "programming"
+    surface: "community_post"
+    content_type: "markdown"
+    auth_ref: "env:LEMMY_LOCAL_AUTH_TOKEN"
+    rate_limits:
+      requests_per_minute: 60
+    format_limits:
+      max_name_length: 200
+      max_body_length: 15000
+    posting_rules:
+      max_posts_per_window: 5
+      window_seconds: 3600
+      weekly_frequency_cap: 14
+      allow_self_promotion: false
+      allow_links: true
+      require_ai_disclosure: false
+    capabilities:
+      publish: true
+      get_status: true
+      delete: true
+      fetch_metrics: true
+    certification_status: "certified"
+    evidence_ref: "EVIDENCE/lemmy_local_cert_20261017.json"
+
+  - id: "devto_engineering"
+    connector_key: "devto"
+    name: "Dev.to Engineering Blog"
+    audience: "Global engineering community"
+    base_url: "https://dev.to/api"
+    surface: "article"
+    content_type: "markdown"
+    auth_ref: "env:DEVTO_API_KEY"
+    rate_limits:
+      requests_per_minute: 30
+    format_limits:
+      max_title_length: 128
+      max_body_length: 100000
+      max_tags: 4
+    posting_rules:
+      max_posts_per_window: 2
+      window_seconds: 86400
+      weekly_frequency_cap: 4
+      allow_self_promotion: true
+      allow_links: true
+      require_ai_disclosure: true
+    capabilities:
+      publish: true
+      get_status: true
+      delete: true
+      fetch_metrics: true
+    certification_status: "certified"
+    evidence_ref: "EVIDENCE/devto_cert_20261017.json"
+
+  - id: "ghost_tech_publication"
+    connector_key: "ghost"
+    name: "IncuBrix Tech Insights (Ghost)"
+    audience: "Product builders and engineers"
+    base_url: "http://ghost:2368"
+    surface: "post"
+    content_type: "html"
+    auth_ref: "env:GHOST_ADMIN_API_KEY"
+    rate_limits:
+      requests_per_minute: 60
+    format_limits:
+      max_title_length: 255
+      max_body_length: 500000
+    posting_rules:
+      max_posts_per_window: 10
+      window_seconds: 86400
+      weekly_frequency_cap: 25
+      allow_self_promotion: true
+      allow_links: true
+      require_ai_disclosure: false
+    capabilities:
+      publish: true
+      get_status: true
+      delete: true
+      fetch_metrics: true
+    certification_status: "certified"
+    evidence_ref: "EVIDENCE/ghost_local_cert_20261017.json"
+
+  - id: "partner_acme_webhook"
+    connector_key: "webhook"
+    name: "Acme Syndicate Partner Feed"
+    audience: "Syndicated partner platform network"
+    webhook_url: "https://partner.acme.corp/webhooks/incoming"
+    surface: "partner_feed"
+    content_type: "json"
+    auth_ref: "env:ACME_WEBHOOK_SECRET"
+    rate_limits:
+      requests_per_minute: 120
+    format_limits:
+      max_body_length: 250000
+    posting_rules:
+      max_posts_per_window: 20
+      window_seconds: 3600
+      weekly_frequency_cap: 100
+      allow_self_promotion: true
+      allow_links: true
+      require_ai_disclosure: false
+    capabilities:
+      publish: true
+      get_status: true
+      delete: true
+      fetch_metrics: true
+    certification_status: "certified"
+    evidence_ref: "EVIDENCE/acme_webhook_cert_20261017.json"
+
+  - id: "assisted_hackernews_showhn"
+    connector_key: "assisted"
+    name: "Hacker News - Show HN"
+    audience: "Tech founders, engineers, hackers"
+    submission_url: "https://news.ycombinator.com/submit"
+    surface: "moderated_forum"
+    content_type: "text"
+    rate_limits:
+      requests_per_minute: 5
+    format_limits:
+      max_text_length: 2000
+    posting_rules:
+      max_posts_per_window: 1
+      window_seconds: 86400
+      weekly_frequency_cap: 1
+      allow_self_promotion: false
+      allow_links: true
+      require_ai_disclosure: true
+    capabilities:
+      publish: true
+      get_status: true
+      delete: true
+      fetch_metrics: false
+      build_assist_pack: true
+    certification_status: "certified"
+    evidence_ref: "EVIDENCE/assisted_hn_cert_20261017.json"
