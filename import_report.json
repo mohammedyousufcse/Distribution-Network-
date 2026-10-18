@@ -1,0 +1,1575 @@
+{
+  "file": "destinations_sample_1000.csv",
+  "timestamp": "2026-10-18T08:09:58.559826+00:00",
+  "elapsed_seconds": 0.02,
+  "total_rows_processed": 1000,
+  "imported_count": 869,
+  "duplicate_count": 131,
+  "invalid_count": 0,
+  "unreachable_count": 0,
+  "success_rate_percent": 86.9,
+  "errors": [
+    {
+      "row": 9,
+      "error_type": "DUPLICATE_ENTRY",
+      "message": "Duplicate destination 'Hacker News / Manual Video 9 Community' with URL 'https://news.ycombinator.com/submit' and platform 'assisted'",
+      "data_sample": {
+        "name": "Hacker News / Manual Video 9 Community",
+        "url": "https://news.ycombinator.com/submit",
+        "platform_key": "assisted"
+      }
+    },
+    {
+      "row": 16,
+      "error_type": "DUPLICATE_ENTRY",
+      "message": "Duplicate destination 'Hacker News / Manual Indiehackers 16 Community' with URL 'https://news.ycombinator.com/submit' and platform 'assisted'",
+      "data_sample": {
+        "name": "Hacker News / Manual Indiehackers 16 Community",
+        "url": "https://news.ycombinator.com/submit",
+        "platform_key": "assisted"
+      }
+    },
+    {
+      "row": 24,
+      "error_type": "DUPLICATE_ENTRY",
+      "message": "Duplicate destination 'Hacker News / Manual Founders 24 Community' with URL 'https://news.ycombinator.com/submit' and platform 'assisted'",
+      "data_sample": {
+        "name": "Hacker News / Manual Founders 24 Community",
+        "url": "https://news.ycombinator.com/submit",
+        "platform_key": "assisted"
+      }
+    },
+    {
+      "row": 28,
+      "error_type": "DUPLICATE_ENTRY",
+      "message": "Duplicate destination 'Hacker News / Manual Devops 28 Community' with URL 'https://news.ycombinator.com/submit' and platform 'assisted'",
+      "data_sample": {
+        "name": "Hacker News / Manual Devops 28 Community",
+        "url": "https://news.ycombinator.com/submit",
+        "platform_key": "assisted"
+      }
+    },
+    {
+      "row": 35,
+      "error_type": "DUPLICATE_ENTRY",
+      "message": "Duplicate destination 'Hacker News / Manual Analytics 35 Community' with URL 'https://news.ycombinator.com/submit' and platform 'assisted'",
+      "data_sample": {
+        "name": "Hacker News / Manual Analytics 35 Community",
+        "url": "https://news.ycombinator.com/submit",
+        "platform_key": "assisted"
+      }
+    },
+    {
+      "row": 38,
+      "error_type": "DUPLICATE_ENTRY",
+      "message": "Duplicate destination 'Hacker News / Manual Webdev 38 Community' with URL 'https://news.ycombinator.com/submit' and platform 'assisted'",
+      "data_sample": {
+        "name": "Hacker News / Manual Webdev 38 Community",
+        "url": "https://news.ycombinator.com/submit",
+        "platform_key": "assisted"
+      }
+    },
+    {
+      "row": 39,
+      "error_type": "DUPLICATE_ENTRY",
+      "message": "Duplicate destination 'Hacker News / Manual Opensource 39 Community' with URL 'https://news.ycombinator.com/submit' and platform 'assisted'",
+      "data_sample": {
+        "name": "Hacker News / Manual Opensource 39 Community",
+        "url": "https://news.ycombinator.com/submit",
+        "platform_key": "assisted"
+      }
+    },
+    {
+      "row": 47,
+      "error_type": "DUPLICATE_ENTRY",
+      "message": "Duplicate destination 'Hacker News / Manual Robotics 47 Community' with URL 'https://news.ycombinator.com/submit' and platform 'assisted'",
+      "data_sample": {
+        "name": "Hacker News / Manual Robotics 47 Community",
+        "url": "https://news.ycombinator.com/submit",
+        "platform_key": "assisted"
+      }
+    },
+    {
+      "row": 50,
+      "error_type": "DUPLICATE_ENTRY",
+      "message": "Duplicate destination 'Duplicate Hub video_50' with URL 'https://robotics_49.slack.com' and platform 'slack'",
+      "data_sample": {
+        "name": "Duplicate Hub video_50",
+        "url": "https://robotics_49.slack.com",
+        "platform_key": "slack"
+      }
+    },
+    {
+      "row": 51,
+      "error_type": "DUPLICATE_ENTRY",
+      "message": "Duplicate destination 'Hacker News / Manual Founders 51 Community' with URL 'https://news.ycombinator.com/submit' and platform 'assisted'",
+      "data_sample": {
+        "name": "Hacker News / Manual Founders 51 Community",
+        "url": "https://news.ycombinator.com/submit",
+        "platform_key": "assisted"
+      }
+    },
+    {
+      "row": 57,
+      "error_type": "DUPLICATE_ENTRY",
+      "message": "Duplicate destination 'Hacker News / Manual Indiehackers 57 Community' with URL 'https://news.ycombinator.com/submit' and platform 'assisted'",
+      "data_sample": {
+        "name": "Hacker News / Manual Indiehackers 57 Community",
+        "url": "https://news.ycombinator.com/submit",
+        "platform_key": "assisted"
+      }
+    },
+    {
+      "row": 77,
+      "error_type": "DUPLICATE_ENTRY",
+      "message": "Duplicate destination 'Hacker News / Manual Startups 77 Community' with URL 'https://news.ycombinator.com/submit' and platform 'assisted'",
+      "data_sample": {
+        "name": "Hacker News / Manual Startups 77 Community",
+        "url": "https://news.ycombinator.com/submit",
+        "platform_key": "assisted"
+      }
+    },
+    {
+      "row": 94,
+      "error_type": "DUPLICATE_ENTRY",
+      "message": "Duplicate destination 'Hacker News / Manual Opensource 94 Community' with URL 'https://news.ycombinator.com/submit' and platform 'assisted'",
+      "data_sample": {
+        "name": "Hacker News / Manual Opensource 94 Community",
+        "url": "https://news.ycombinator.com/submit",
+        "platform_key": "assisted"
+      }
+    },
+    {
+      "row": 100,
+      "error_type": "DUPLICATE_ENTRY",
+      "message": "Duplicate destination 'Duplicate Hub video_100' with URL 'https://startups_99.hashnode.dev' and platform 'hashnode'",
+      "data_sample": {
+        "name": "Duplicate Hub video_100",
+        "url": "https://startups_99.hashnode.dev",
+        "platform_key": "hashnode"
+      }
+    },
+    {
+      "row": 103,
+      "error_type": "DUPLICATE_ENTRY",
+      "message": "Duplicate destination 'Hacker News / Manual Robotics 103 Community' with URL 'https://news.ycombinator.com/submit' and platform 'assisted'",
+      "data_sample": {
+        "name": "Hacker News / Manual Robotics 103 Community",
+        "url": "https://news.ycombinator.com/submit",
+        "platform_key": "assisted"
+      }
+    },
+    {
+      "row": 104,
+      "error_type": "DUPLICATE_ENTRY",
+      "message": "Duplicate destination 'Hacker News / Manual Founders 104 Community' with URL 'https://news.ycombinator.com/submit' and platform 'assisted'",
+      "data_sample": {
+        "name": "Hacker News / Manual Founders 104 Community",
+        "url": "https://news.ycombinator.com/submit",
+        "platform_key": "assisted"
+      }
+    },
+    {
+      "row": 150,
+      "error_type": "DUPLICATE_ENTRY",
+      "message": "Duplicate destination 'Duplicate Hub python_150' with URL 'https://video_149.hashnode.dev' and platform 'hashnode'",
+      "data_sample": {
+        "name": "Duplicate Hub python_150",
+        "url": "https://video_149.hashnode.dev",
+        "platform_key": "hashnode"
+      }
+    },
+    {
+      "row": 158,
+      "error_type": "DUPLICATE_ENTRY",
+      "message": "Duplicate destination 'Hacker News / Manual Cloud 158 Community' with URL 'https://news.ycombinator.com/submit' and platform 'assisted'",
+      "data_sample": {
+        "name": "Hacker News / Manual Cloud 158 Community",
+        "url": "https://news.ycombinator.com/submit",
+        "platform_key": "assisted"
+      }
+    },
+    {
+      "row": 161,
+      "error_type": "DUPLICATE_ENTRY",
+      "message": "Duplicate destination 'Hacker News / Manual Devops 161 Community' with URL 'https://news.ycombinator.com/submit' and platform 'assisted'",
+      "data_sample": {
+        "name": "Hacker News / Manual Devops 161 Community",
+        "url": "https://news.ycombinator.com/submit",
+        "platform_key": "assisted"
+      }
+    },
+    {
+      "row": 178,
+      "error_type": "DUPLICATE_ENTRY",
+      "message": "Duplicate destination 'Hacker News / Manual Python 178 Community' with URL 'https://news.ycombinator.com/submit' and platform 'assisted'",
+      "data_sample": {
+        "name": "Hacker News / Manual Python 178 Community",
+        "url": "https://news.ycombinator.com/submit",
+        "platform_key": "assisted"
+      }
+    },
+    {
+      "row": 184,
+      "error_type": "DUPLICATE_ENTRY",
+      "message": "Duplicate destination 'Hacker News / Manual Webdev 184 Community' with URL 'https://news.ycombinator.com/submit' and platform 'assisted'",
+      "data_sample": {
+        "name": "Hacker News / Manual Webdev 184 Community",
+        "url": "https://news.ycombinator.com/submit",
+        "platform_key": "assisted"
+      }
+    },
+    {
+      "row": 186,
+      "error_type": "DUPLICATE_ENTRY",
+      "message": "Duplicate destination 'Hacker News / Manual Machinelearning 186 Community' with URL 'https://news.ycombinator.com/submit' and platform 'assisted'",
+      "data_sample": {
+        "name": "Hacker News / Manual Machinelearning 186 Community",
+        "url": "https://news.ycombinator.com/submit",
+        "platform_key": "assisted"
+      }
+    },
+    {
+      "row": 188,
+      "error_type": "DUPLICATE_ENTRY",
+      "message": "Duplicate destination 'Hacker News / Manual Indiehackers 188 Community' with URL 'https://news.ycombinator.com/submit' and platform 'assisted'",
+      "data_sample": {
+        "name": "Hacker News / Manual Indiehackers 188 Community",
+        "url": "https://news.ycombinator.com/submit",
+        "platform_key": "assisted"
+      }
+    },
+    {
+      "row": 193,
+      "error_type": "DUPLICATE_ENTRY",
+      "message": "Duplicate destination 'Hacker News / Manual Opensource 193 Community' with URL 'https://news.ycombinator.com/submit' and platform 'assisted'",
+      "data_sample": {
+        "name": "Hacker News / Manual Opensource 193 Community",
+        "url": "https://news.ycombinator.com/submit",
+        "platform_key": "assisted"
+      }
+    },
+    {
+      "row": 199,
+      "error_type": "DUPLICATE_ENTRY",
+      "message": "Duplicate destination 'Hacker News / Manual Automation 199 Community' with URL 'https://news.ycombinator.com/submit' and platform 'assisted'",
+      "data_sample": {
+        "name": "Hacker News / Manual Automation 199 Community",
+        "url": "https://news.ycombinator.com/submit",
+        "platform_key": "assisted"
+      }
+    },
+    {
+      "row": 200,
+      "error_type": "DUPLICATE_ENTRY",
+      "message": "Duplicate destination 'Duplicate Hub robotics_200' with URL 'https://news.ycombinator.com/submit' and platform 'assisted'",
+      "data_sample": {
+        "name": "Duplicate Hub robotics_200",
+        "url": "https://news.ycombinator.com/submit",
+        "platform_key": "assisted"
+      }
+    },
+    {
+      "row": 204,
+      "error_type": "DUPLICATE_ENTRY",
+      "message": "Duplicate destination 'Hacker News / Manual Founders 204 Community' with URL 'https://news.ycombinator.com/submit' and platform 'assisted'",
+      "data_sample": {
+        "name": "Hacker News / Manual Founders 204 Community",
+        "url": "https://news.ycombinator.com/submit",
+        "platform_key": "assisted"
+      }
+    },
+    {
+      "row": 205,
+      "error_type": "DUPLICATE_ENTRY",
+      "message": "Duplicate destination 'Hacker News / Manual Devops 205 Community' with URL 'https://news.ycombinator.com/submit' and platform 'assisted'",
+      "data_sample": {
+        "name": "Hacker News / Manual Devops 205 Community",
+        "url": "https://news.ycombinator.com/submit",
+        "platform_key": "assisted"
+      }
+    },
+    {
+      "row": 208,
+      "error_type": "DUPLICATE_ENTRY",
+      "message": "Duplicate destination 'Hacker News / Manual Robotics 208 Community' with URL 'https://news.ycombinator.com/submit' and platform 'assisted'",
+      "data_sample": {
+        "name": "Hacker News / Manual Robotics 208 Community",
+        "url": "https://news.ycombinator.com/submit",
+        "platform_key": "assisted"
+      }
+    },
+    {
+      "row": 231,
+      "error_type": "DUPLICATE_ENTRY",
+      "message": "Duplicate destination 'Hacker News / Manual Product 231 Community' with URL 'https://news.ycombinator.com/submit' and platform 'assisted'",
+      "data_sample": {
+        "name": "Hacker News / Manual Product 231 Community",
+        "url": "https://news.ycombinator.com/submit",
+        "platform_key": "assisted"
+      }
+    },
+    {
+      "row": 232,
+      "error_type": "DUPLICATE_ENTRY",
+      "message": "Duplicate destination 'Hacker News / Manual Webdev 232 Community' with URL 'https://news.ycombinator.com/submit' and platform 'assisted'",
+      "data_sample": {
+        "name": "Hacker News / Manual Webdev 232 Community",
+        "url": "https://news.ycombinator.com/submit",
+        "platform_key": "assisted"
+      }
+    },
+    {
+      "row": 233,
+      "error_type": "DUPLICATE_ENTRY",
+      "message": "Duplicate destination 'Hacker News / Manual Opensource 233 Community' with URL 'https://news.ycombinator.com/submit' and platform 'assisted'",
+      "data_sample": {
+        "name": "Hacker News / Manual Opensource 233 Community",
+        "url": "https://news.ycombinator.com/submit",
+        "platform_key": "assisted"
+      }
+    },
+    {
+      "row": 250,
+      "error_type": "DUPLICATE_ENTRY",
+      "message": "Duplicate destination 'Duplicate Hub startups_250' with URL 'https://founders_249.slack.com' and platform 'slack'",
+      "data_sample": {
+        "name": "Duplicate Hub startups_250",
+        "url": "https://founders_249.slack.com",
+        "platform_key": "slack"
+      }
+    },
+    {
+      "row": 280,
+      "error_type": "DUPLICATE_ENTRY",
+      "message": "Duplicate destination 'Hacker News / Manual React 280 Community' with URL 'https://news.ycombinator.com/submit' and platform 'assisted'",
+      "data_sample": {
+        "name": "Hacker News / Manual React 280 Community",
+        "url": "https://news.ycombinator.com/submit",
+        "platform_key": "assisted"
+      }
+    },
+    {
+      "row": 282,
+      "error_type": "DUPLICATE_ENTRY",
+      "message": "Duplicate destination 'Hacker News / Manual Opensource 282 Community' with URL 'https://news.ycombinator.com/submit' and platform 'assisted'",
+      "data_sample": {
+        "name": "Hacker News / Manual Opensource 282 Community",
+        "url": "https://news.ycombinator.com/submit",
+        "platform_key": "assisted"
+      }
+    },
+    {
+      "row": 289,
+      "error_type": "DUPLICATE_ENTRY",
+      "message": "Duplicate destination 'Hacker News / Manual Fastapi 289 Community' with URL 'https://news.ycombinator.com/submit' and platform 'assisted'",
+      "data_sample": {
+        "name": "Hacker News / Manual Fastapi 289 Community",
+        "url": "https://news.ycombinator.com/submit",
+        "platform_key": "assisted"
+      }
+    },
+    {
+      "row": 295,
+      "error_type": "DUPLICATE_ENTRY",
+      "message": "Duplicate destination 'Hacker News / Manual Ai 295 Community' with URL 'https://news.ycombinator.com/submit' and platform 'assisted'",
+      "data_sample": {
+        "name": "Hacker News / Manual Ai 295 Community",
+        "url": "https://news.ycombinator.com/submit",
+        "platform_key": "assisted"
+      }
+    },
+    {
+      "row": 298,
+      "error_type": "DUPLICATE_ENTRY",
+      "message": "Duplicate destination 'Hacker News / Manual Cloud 298 Community' with URL 'https://news.ycombinator.com/submit' and platform 'assisted'",
+      "data_sample": {
+        "name": "Hacker News / Manual Cloud 298 Community",
+        "url": "https://news.ycombinator.com/submit",
+        "platform_key": "assisted"
+      }
+    },
+    {
+      "row": 299,
+      "error_type": "DUPLICATE_ENTRY",
+      "message": "Duplicate destination 'Hacker News / Manual Startups 299 Community' with URL 'https://news.ycombinator.com/submit' and platform 'assisted'",
+      "data_sample": {
+        "name": "Hacker News / Manual Startups 299 Community",
+        "url": "https://news.ycombinator.com/submit",
+        "platform_key": "assisted"
+      }
+    },
+    {
+      "row": 300,
+      "error_type": "DUPLICATE_ENTRY",
+      "message": "Duplicate destination 'Duplicate Hub python_300' with URL 'https://news.ycombinator.com/submit' and platform 'assisted'",
+      "data_sample": {
+        "name": "Duplicate Hub python_300",
+        "url": "https://news.ycombinator.com/submit",
+        "platform_key": "assisted"
+      }
+    },
+    {
+      "row": 308,
+      "error_type": "DUPLICATE_ENTRY",
+      "message": "Duplicate destination 'Hacker News / Manual Devops 308 Community' with URL 'https://news.ycombinator.com/submit' and platform 'assisted'",
+      "data_sample": {
+        "name": "Hacker News / Manual Devops 308 Community",
+        "url": "https://news.ycombinator.com/submit",
+        "platform_key": "assisted"
+      }
+    },
+    {
+      "row": 329,
+      "error_type": "DUPLICATE_ENTRY",
+      "message": "Duplicate destination 'Hacker News / Manual Video 329 Community' with URL 'https://news.ycombinator.com/submit' and platform 'assisted'",
+      "data_sample": {
+        "name": "Hacker News / Manual Video 329 Community",
+        "url": "https://news.ycombinator.com/submit",
+        "platform_key": "assisted"
+      }
+    },
+    {
+      "row": 350,
+      "error_type": "DUPLICATE_ENTRY",
+      "message": "Duplicate destination 'Duplicate Hub saas_350' with URL 'https://blog.machinelearning_349.com' and platform 'ghost'",
+      "data_sample": {
+        "name": "Duplicate Hub saas_350",
+        "url": "https://blog.machinelearning_349.com",
+        "platform_key": "ghost"
+      }
+    },
+    {
+      "row": 385,
+      "error_type": "DUPLICATE_ENTRY",
+      "message": "Duplicate destination 'Hacker News / Manual Indiehackers 385 Community' with URL 'https://news.ycombinator.com/submit' and platform 'assisted'",
+      "data_sample": {
+        "name": "Hacker News / Manual Indiehackers 385 Community",
+        "url": "https://news.ycombinator.com/submit",
+        "platform_key": "assisted"
+      }
+    },
+    {
+      "row": 392,
+      "error_type": "DUPLICATE_ENTRY",
+      "message": "Duplicate destination 'Hacker News / Manual Python 392 Community' with URL 'https://news.ycombinator.com/submit' and platform 'assisted'",
+      "data_sample": {
+        "name": "Hacker News / Manual Python 392 Community",
+        "url": "https://news.ycombinator.com/submit",
+        "platform_key": "assisted"
+      }
+    },
+    {
+      "row": 393,
+      "error_type": "DUPLICATE_ENTRY",
+      "message": "Duplicate destination 'Hacker News / Manual Cloud 393 Community' with URL 'https://news.ycombinator.com/submit' and platform 'assisted'",
+      "data_sample": {
+        "name": "Hacker News / Manual Cloud 393 Community",
+        "url": "https://news.ycombinator.com/submit",
+        "platform_key": "assisted"
+      }
+    },
+    {
+      "row": 398,
+      "error_type": "DUPLICATE_ENTRY",
+      "message": "Duplicate destination 'Hacker News / Manual Devops 398 Community' with URL 'https://news.ycombinator.com/submit' and platform 'assisted'",
+      "data_sample": {
+        "name": "Hacker News / Manual Devops 398 Community",
+        "url": "https://news.ycombinator.com/submit",
+        "platform_key": "assisted"
+      }
+    },
+    {
+      "row": 400,
+      "error_type": "DUPLICATE_ENTRY",
+      "message": "Duplicate destination 'Duplicate Hub react_400' with URL 'https://video_399.slack.com' and platform 'slack'",
+      "data_sample": {
+        "name": "Duplicate Hub react_400",
+        "url": "https://video_399.slack.com",
+        "platform_key": "slack"
+      }
+    },
+    {
+      "row": 409,
+      "error_type": "DUPLICATE_ENTRY",
+      "message": "Duplicate destination 'Hacker News / Manual Analytics 409 Community' with URL 'https://news.ycombinator.com/submit' and platform 'assisted'",
+      "data_sample": {
+        "name": "Hacker News / Manual Analytics 409 Community",
+        "url": "https://news.ycombinator.com/submit",
+        "platform_key": "assisted"
+      }
+    },
+    {
+      "row": 416,
+      "error_type": "DUPLICATE_ENTRY",
+      "message": "Duplicate destination 'Hacker News / Manual Machinelearning 416 Community' with URL 'https://news.ycombinator.com/submit' and platform 'assisted'",
+      "data_sample": {
+        "name": "Hacker News / Manual Machinelearning 416 Community",
+        "url": "https://news.ycombinator.com/submit",
+        "platform_key": "assisted"
+      }
+    },
+    {
+      "row": 419,
+      "error_type": "DUPLICATE_ENTRY",
+      "message": "Duplicate destination 'Hacker News / Manual Founders 419 Community' with URL 'https://news.ycombinator.com/submit' and platform 'assisted'",
+      "data_sample": {
+        "name": "Hacker News / Manual Founders 419 Community",
+        "url": "https://news.ycombinator.com/submit",
+        "platform_key": "assisted"
+      }
+    },
+    {
+      "row": 438,
+      "error_type": "DUPLICATE_ENTRY",
+      "message": "Duplicate destination 'Hacker News / Manual Saas 438 Community' with URL 'https://news.ycombinator.com/submit' and platform 'assisted'",
+      "data_sample": {
+        "name": "Hacker News / Manual Saas 438 Community",
+        "url": "https://news.ycombinator.com/submit",
+        "platform_key": "assisted"
+      }
+    },
+    {
+      "row": 450,
+      "error_type": "DUPLICATE_ENTRY",
+      "message": "Duplicate destination 'Duplicate Hub devops_450' with URL 'https://syndicate.indiehackers_449.net/webhook' and platform 'webhook'",
+      "data_sample": {
+        "name": "Duplicate Hub devops_450",
+        "url": "https://syndicate.indiehackers_449.net/webhook",
+        "platform_key": "webhook"
+      }
+    },
+    {
+      "row": 454,
+      "error_type": "DUPLICATE_ENTRY",
+      "message": "Duplicate destination 'Hacker News / Manual Opensource 454 Community' with URL 'https://news.ycombinator.com/submit' and platform 'assisted'",
+      "data_sample": {
+        "name": "Hacker News / Manual Opensource 454 Community",
+        "url": "https://news.ycombinator.com/submit",
+        "platform_key": "assisted"
+      }
+    },
+    {
+      "row": 464,
+      "error_type": "DUPLICATE_ENTRY",
+      "message": "Duplicate destination 'Hacker News / Manual Indiehackers 464 Community' with URL 'https://news.ycombinator.com/submit' and platform 'assisted'",
+      "data_sample": {
+        "name": "Hacker News / Manual Indiehackers 464 Community",
+        "url": "https://news.ycombinator.com/submit",
+        "platform_key": "assisted"
+      }
+    },
+    {
+      "row": 480,
+      "error_type": "DUPLICATE_ENTRY",
+      "message": "Duplicate destination 'Hacker News / Manual Saas 480 Community' with URL 'https://news.ycombinator.com/submit' and platform 'assisted'",
+      "data_sample": {
+        "name": "Hacker News / Manual Saas 480 Community",
+        "url": "https://news.ycombinator.com/submit",
+        "platform_key": "assisted"
+      }
+    },
+    {
+      "row": 488,
+      "error_type": "DUPLICATE_ENTRY",
+      "message": "Duplicate destination 'Hacker News / Manual Growth 488 Community' with URL 'https://news.ycombinator.com/submit' and platform 'assisted'",
+      "data_sample": {
+        "name": "Hacker News / Manual Growth 488 Community",
+        "url": "https://news.ycombinator.com/submit",
+        "platform_key": "assisted"
+      }
+    },
+    {
+      "row": 497,
+      "error_type": "DUPLICATE_ENTRY",
+      "message": "Duplicate destination 'Hacker News / Manual Opensource 497 Community' with URL 'https://news.ycombinator.com/submit' and platform 'assisted'",
+      "data_sample": {
+        "name": "Hacker News / Manual Opensource 497 Community",
+        "url": "https://news.ycombinator.com/submit",
+        "platform_key": "assisted"
+      }
+    },
+    {
+      "row": 500,
+      "error_type": "DUPLICATE_ENTRY",
+      "message": "Duplicate destination 'Duplicate Hub react_500' with URL 'https://forum.automation_499.org' and platform 'discourse'",
+      "data_sample": {
+        "name": "Duplicate Hub react_500",
+        "url": "https://forum.automation_499.org",
+        "platform_key": "discourse"
+      }
+    },
+    {
+      "row": 504,
+      "error_type": "DUPLICATE_ENTRY",
+      "message": "Duplicate destination 'Hacker News / Manual Automation 504 Community' with URL 'https://news.ycombinator.com/submit' and platform 'assisted'",
+      "data_sample": {
+        "name": "Hacker News / Manual Automation 504 Community",
+        "url": "https://news.ycombinator.com/submit",
+        "platform_key": "assisted"
+      }
+    },
+    {
+      "row": 526,
+      "error_type": "DUPLICATE_ENTRY",
+      "message": "Duplicate destination 'Hacker News / Manual Marketing 526 Community' with URL 'https://news.ycombinator.com/submit' and platform 'assisted'",
+      "data_sample": {
+        "name": "Hacker News / Manual Marketing 526 Community",
+        "url": "https://news.ycombinator.com/submit",
+        "platform_key": "assisted"
+      }
+    },
+    {
+      "row": 528,
+      "error_type": "DUPLICATE_ENTRY",
+      "message": "Duplicate destination 'Hacker News / Manual Product 528 Community' with URL 'https://news.ycombinator.com/submit' and platform 'assisted'",
+      "data_sample": {
+        "name": "Hacker News / Manual Product 528 Community",
+        "url": "https://news.ycombinator.com/submit",
+        "platform_key": "assisted"
+      }
+    },
+    {
+      "row": 537,
+      "error_type": "DUPLICATE_ENTRY",
+      "message": "Duplicate destination 'Hacker News / Manual Opensource 537 Community' with URL 'https://news.ycombinator.com/submit' and platform 'assisted'",
+      "data_sample": {
+        "name": "Hacker News / Manual Opensource 537 Community",
+        "url": "https://news.ycombinator.com/submit",
+        "platform_key": "assisted"
+      }
+    },
+    {
+      "row": 538,
+      "error_type": "DUPLICATE_ENTRY",
+      "message": "Duplicate destination 'Hacker News / Manual Indiehackers 538 Community' with URL 'https://news.ycombinator.com/submit' and platform 'assisted'",
+      "data_sample": {
+        "name": "Hacker News / Manual Indiehackers 538 Community",
+        "url": "https://news.ycombinator.com/submit",
+        "platform_key": "assisted"
+      }
+    },
+    {
+      "row": 541,
+      "error_type": "DUPLICATE_ENTRY",
+      "message": "Duplicate destination 'Hacker News / Manual Product 541 Community' with URL 'https://news.ycombinator.com/submit' and platform 'assisted'",
+      "data_sample": {
+        "name": "Hacker News / Manual Product 541 Community",
+        "url": "https://news.ycombinator.com/submit",
+        "platform_key": "assisted"
+      }
+    },
+    {
+      "row": 546,
+      "error_type": "DUPLICATE_ENTRY",
+      "message": "Duplicate destination 'Hacker News / Manual Analytics 546 Community' with URL 'https://news.ycombinator.com/submit' and platform 'assisted'",
+      "data_sample": {
+        "name": "Hacker News / Manual Analytics 546 Community",
+        "url": "https://news.ycombinator.com/submit",
+        "platform_key": "assisted"
+      }
+    },
+    {
+      "row": 550,
+      "error_type": "DUPLICATE_ENTRY",
+      "message": "Duplicate destination 'Duplicate Hub fastapi_550' with URL 'https://blog.robotics_549.com' and platform 'ghost'",
+      "data_sample": {
+        "name": "Duplicate Hub fastapi_550",
+        "url": "https://blog.robotics_549.com",
+        "platform_key": "ghost"
+      }
+    },
+    {
+      "row": 555,
+      "error_type": "DUPLICATE_ENTRY",
+      "message": "Duplicate destination 'Hacker News / Manual Analytics 555 Community' with URL 'https://news.ycombinator.com/submit' and platform 'assisted'",
+      "data_sample": {
+        "name": "Hacker News / Manual Analytics 555 Community",
+        "url": "https://news.ycombinator.com/submit",
+        "platform_key": "assisted"
+      }
+    },
+    {
+      "row": 562,
+      "error_type": "DUPLICATE_ENTRY",
+      "message": "Duplicate destination 'Hacker News / Manual Analytics 562 Community' with URL 'https://news.ycombinator.com/submit' and platform 'assisted'",
+      "data_sample": {
+        "name": "Hacker News / Manual Analytics 562 Community",
+        "url": "https://news.ycombinator.com/submit",
+        "platform_key": "assisted"
+      }
+    },
+    {
+      "row": 563,
+      "error_type": "DUPLICATE_ENTRY",
+      "message": "Duplicate destination 'Hacker News / Manual Webdev 563 Community' with URL 'https://news.ycombinator.com/submit' and platform 'assisted'",
+      "data_sample": {
+        "name": "Hacker News / Manual Webdev 563 Community",
+        "url": "https://news.ycombinator.com/submit",
+        "platform_key": "assisted"
+      }
+    },
+    {
+      "row": 578,
+      "error_type": "DUPLICATE_ENTRY",
+      "message": "Duplicate destination 'Hacker News / Manual Startups 578 Community' with URL 'https://news.ycombinator.com/submit' and platform 'assisted'",
+      "data_sample": {
+        "name": "Hacker News / Manual Startups 578 Community",
+        "url": "https://news.ycombinator.com/submit",
+        "platform_key": "assisted"
+      }
+    },
+    {
+      "row": 588,
+      "error_type": "DUPLICATE_ENTRY",
+      "message": "Duplicate destination 'Hacker News / Manual Growth 588 Community' with URL 'https://news.ycombinator.com/submit' and platform 'assisted'",
+      "data_sample": {
+        "name": "Hacker News / Manual Growth 588 Community",
+        "url": "https://news.ycombinator.com/submit",
+        "platform_key": "assisted"
+      }
+    },
+    {
+      "row": 598,
+      "error_type": "DUPLICATE_ENTRY",
+      "message": "Duplicate destination 'Hacker News / Manual Fastapi 598 Community' with URL 'https://news.ycombinator.com/submit' and platform 'assisted'",
+      "data_sample": {
+        "name": "Hacker News / Manual Fastapi 598 Community",
+        "url": "https://news.ycombinator.com/submit",
+        "platform_key": "assisted"
+      }
+    },
+    {
+      "row": 600,
+      "error_type": "DUPLICATE_ENTRY",
+      "message": "Duplicate destination 'Duplicate Hub cloud_600' with URL 'https://forum.devops_599.org' and platform 'discourse'",
+      "data_sample": {
+        "name": "Duplicate Hub cloud_600",
+        "url": "https://forum.devops_599.org",
+        "platform_key": "discourse"
+      }
+    },
+    {
+      "row": 601,
+      "error_type": "DUPLICATE_ENTRY",
+      "message": "Duplicate destination 'Hacker News / Manual Startups 601 Community' with URL 'https://news.ycombinator.com/submit' and platform 'assisted'",
+      "data_sample": {
+        "name": "Hacker News / Manual Startups 601 Community",
+        "url": "https://news.ycombinator.com/submit",
+        "platform_key": "assisted"
+      }
+    },
+    {
+      "row": 607,
+      "error_type": "DUPLICATE_ENTRY",
+      "message": "Duplicate destination 'Hacker News / Manual Marketing 607 Community' with URL 'https://news.ycombinator.com/submit' and platform 'assisted'",
+      "data_sample": {
+        "name": "Hacker News / Manual Marketing 607 Community",
+        "url": "https://news.ycombinator.com/submit",
+        "platform_key": "assisted"
+      }
+    },
+    {
+      "row": 638,
+      "error_type": "DUPLICATE_ENTRY",
+      "message": "Duplicate destination 'Hacker News / Manual Ai 638 Community' with URL 'https://news.ycombinator.com/submit' and platform 'assisted'",
+      "data_sample": {
+        "name": "Hacker News / Manual Ai 638 Community",
+        "url": "https://news.ycombinator.com/submit",
+        "platform_key": "assisted"
+      }
+    },
+    {
+      "row": 645,
+      "error_type": "DUPLICATE_ENTRY",
+      "message": "Duplicate destination 'Hacker News / Manual Cloud 645 Community' with URL 'https://news.ycombinator.com/submit' and platform 'assisted'",
+      "data_sample": {
+        "name": "Hacker News / Manual Cloud 645 Community",
+        "url": "https://news.ycombinator.com/submit",
+        "platform_key": "assisted"
+      }
+    },
+    {
+      "row": 650,
+      "error_type": "DUPLICATE_ENTRY",
+      "message": "Duplicate destination 'Duplicate Hub analytics_650' with URL 'https://dev.to/indiehackers_649' and platform 'devto'",
+      "data_sample": {
+        "name": "Duplicate Hub analytics_650",
+        "url": "https://dev.to/indiehackers_649",
+        "platform_key": "devto"
+      }
+    },
+    {
+      "row": 663,
+      "error_type": "DUPLICATE_ENTRY",
+      "message": "Duplicate destination 'Hacker News / Manual Growth 663 Community' with URL 'https://news.ycombinator.com/submit' and platform 'assisted'",
+      "data_sample": {
+        "name": "Hacker News / Manual Growth 663 Community",
+        "url": "https://news.ycombinator.com/submit",
+        "platform_key": "assisted"
+      }
+    },
+    {
+      "row": 664,
+      "error_type": "DUPLICATE_ENTRY",
+      "message": "Duplicate destination 'Hacker News / Manual Growth 664 Community' with URL 'https://news.ycombinator.com/submit' and platform 'assisted'",
+      "data_sample": {
+        "name": "Hacker News / Manual Growth 664 Community",
+        "url": "https://news.ycombinator.com/submit",
+        "platform_key": "assisted"
+      }
+    },
+    {
+      "row": 666,
+      "error_type": "DUPLICATE_ENTRY",
+      "message": "Duplicate destination 'Hacker News / Manual Cloud 666 Community' with URL 'https://news.ycombinator.com/submit' and platform 'assisted'",
+      "data_sample": {
+        "name": "Hacker News / Manual Cloud 666 Community",
+        "url": "https://news.ycombinator.com/submit",
+        "platform_key": "assisted"
+      }
+    },
+    {
+      "row": 674,
+      "error_type": "DUPLICATE_ENTRY",
+      "message": "Duplicate destination 'Hacker News / Manual Product 674 Community' with URL 'https://news.ycombinator.com/submit' and platform 'assisted'",
+      "data_sample": {
+        "name": "Hacker News / Manual Product 674 Community",
+        "url": "https://news.ycombinator.com/submit",
+        "platform_key": "assisted"
+      }
+    },
+    {
+      "row": 679,
+      "error_type": "DUPLICATE_ENTRY",
+      "message": "Duplicate destination 'Hacker News / Manual Robotics 679 Community' with URL 'https://news.ycombinator.com/submit' and platform 'assisted'",
+      "data_sample": {
+        "name": "Hacker News / Manual Robotics 679 Community",
+        "url": "https://news.ycombinator.com/submit",
+        "platform_key": "assisted"
+      }
+    },
+    {
+      "row": 690,
+      "error_type": "DUPLICATE_ENTRY",
+      "message": "Duplicate destination 'Hacker News / Manual Marketing 690 Community' with URL 'https://news.ycombinator.com/submit' and platform 'assisted'",
+      "data_sample": {
+        "name": "Hacker News / Manual Marketing 690 Community",
+        "url": "https://news.ycombinator.com/submit",
+        "platform_key": "assisted"
+      }
+    },
+    {
+      "row": 700,
+      "error_type": "DUPLICATE_ENTRY",
+      "message": "Duplicate destination 'Duplicate Hub ai_700' with URL 'https://syndicate.marketing_699.net/webhook' and platform 'webhook'",
+      "data_sample": {
+        "name": "Duplicate Hub ai_700",
+        "url": "https://syndicate.marketing_699.net/webhook",
+        "platform_key": "webhook"
+      }
+    },
+    {
+      "row": 715,
+      "error_type": "DUPLICATE_ENTRY",
+      "message": "Duplicate destination 'Hacker News / Manual Indiehackers 715 Community' with URL 'https://news.ycombinator.com/submit' and platform 'assisted'",
+      "data_sample": {
+        "name": "Hacker News / Manual Indiehackers 715 Community",
+        "url": "https://news.ycombinator.com/submit",
+        "platform_key": "assisted"
+      }
+    },
+    {
+      "row": 720,
+      "error_type": "DUPLICATE_ENTRY",
+      "message": "Duplicate destination 'Hacker News / Manual React 720 Community' with URL 'https://news.ycombinator.com/submit' and platform 'assisted'",
+      "data_sample": {
+        "name": "Hacker News / Manual React 720 Community",
+        "url": "https://news.ycombinator.com/submit",
+        "platform_key": "assisted"
+      }
+    },
+    {
+      "row": 726,
+      "error_type": "DUPLICATE_ENTRY",
+      "message": "Duplicate destination 'Hacker News / Manual Marketing 726 Community' with URL 'https://news.ycombinator.com/submit' and platform 'assisted'",
+      "data_sample": {
+        "name": "Hacker News / Manual Marketing 726 Community",
+        "url": "https://news.ycombinator.com/submit",
+        "platform_key": "assisted"
+      }
+    },
+    {
+      "row": 727,
+      "error_type": "DUPLICATE_ENTRY",
+      "message": "Duplicate destination 'Hacker News / Manual Saas 727 Community' with URL 'https://news.ycombinator.com/submit' and platform 'assisted'",
+      "data_sample": {
+        "name": "Hacker News / Manual Saas 727 Community",
+        "url": "https://news.ycombinator.com/submit",
+        "platform_key": "assisted"
+      }
+    },
+    {
+      "row": 729,
+      "error_type": "DUPLICATE_ENTRY",
+      "message": "Duplicate destination 'Hacker News / Manual Cloud 729 Community' with URL 'https://news.ycombinator.com/submit' and platform 'assisted'",
+      "data_sample": {
+        "name": "Hacker News / Manual Cloud 729 Community",
+        "url": "https://news.ycombinator.com/submit",
+        "platform_key": "assisted"
+      }
+    },
+    {
+      "row": 750,
+      "error_type": "DUPLICATE_ENTRY",
+      "message": "Duplicate destination 'Duplicate Hub founders_750' with URL 'https://blog.automation_749.com' and platform 'ghost'",
+      "data_sample": {
+        "name": "Duplicate Hub founders_750",
+        "url": "https://blog.automation_749.com",
+        "platform_key": "ghost"
+      }
+    },
+    {
+      "row": 757,
+      "error_type": "DUPLICATE_ENTRY",
+      "message": "Duplicate destination 'Hacker News / Manual Opensource 757 Community' with URL 'https://news.ycombinator.com/submit' and platform 'assisted'",
+      "data_sample": {
+        "name": "Hacker News / Manual Opensource 757 Community",
+        "url": "https://news.ycombinator.com/submit",
+        "platform_key": "assisted"
+      }
+    },
+    {
+      "row": 761,
+      "error_type": "DUPLICATE_ENTRY",
+      "message": "Duplicate destination 'Hacker News / Manual Saas 761 Community' with URL 'https://news.ycombinator.com/submit' and platform 'assisted'",
+      "data_sample": {
+        "name": "Hacker News / Manual Saas 761 Community",
+        "url": "https://news.ycombinator.com/submit",
+        "platform_key": "assisted"
+      }
+    },
+    {
+      "row": 763,
+      "error_type": "DUPLICATE_ENTRY",
+      "message": "Duplicate destination 'Hacker News / Manual Opensource 763 Community' with URL 'https://news.ycombinator.com/submit' and platform 'assisted'",
+      "data_sample": {
+        "name": "Hacker News / Manual Opensource 763 Community",
+        "url": "https://news.ycombinator.com/submit",
+        "platform_key": "assisted"
+      }
+    },
+    {
+      "row": 769,
+      "error_type": "DUPLICATE_ENTRY",
+      "message": "Duplicate destination 'Hacker News / Manual Startups 769 Community' with URL 'https://news.ycombinator.com/submit' and platform 'assisted'",
+      "data_sample": {
+        "name": "Hacker News / Manual Startups 769 Community",
+        "url": "https://news.ycombinator.com/submit",
+        "platform_key": "assisted"
+      }
+    },
+    {
+      "row": 778,
+      "error_type": "DUPLICATE_ENTRY",
+      "message": "Duplicate destination 'Hacker News / Manual Video 778 Community' with URL 'https://news.ycombinator.com/submit' and platform 'assisted'",
+      "data_sample": {
+        "name": "Hacker News / Manual Video 778 Community",
+        "url": "https://news.ycombinator.com/submit",
+        "platform_key": "assisted"
+      }
+    },
+    {
+      "row": 788,
+      "error_type": "DUPLICATE_ENTRY",
+      "message": "Duplicate destination 'Hacker News / Manual Indiehackers 788 Community' with URL 'https://news.ycombinator.com/submit' and platform 'assisted'",
+      "data_sample": {
+        "name": "Hacker News / Manual Indiehackers 788 Community",
+        "url": "https://news.ycombinator.com/submit",
+        "platform_key": "assisted"
+      }
+    },
+    {
+      "row": 792,
+      "error_type": "DUPLICATE_ENTRY",
+      "message": "Duplicate destination 'Hacker News / Manual Devops 792 Community' with URL 'https://news.ycombinator.com/submit' and platform 'assisted'",
+      "data_sample": {
+        "name": "Hacker News / Manual Devops 792 Community",
+        "url": "https://news.ycombinator.com/submit",
+        "platform_key": "assisted"
+      }
+    },
+    {
+      "row": 800,
+      "error_type": "DUPLICATE_ENTRY",
+      "message": "Duplicate destination 'Duplicate Hub machinelearning_800' with URL 'https://blog.automation_799.com' and platform 'ghost'",
+      "data_sample": {
+        "name": "Duplicate Hub machinelearning_800",
+        "url": "https://blog.automation_799.com",
+        "platform_key": "ghost"
+      }
+    },
+    {
+      "row": 802,
+      "error_type": "DUPLICATE_ENTRY",
+      "message": "Duplicate destination 'Hacker News / Manual Robotics 802 Community' with URL 'https://news.ycombinator.com/submit' and platform 'assisted'",
+      "data_sample": {
+        "name": "Hacker News / Manual Robotics 802 Community",
+        "url": "https://news.ycombinator.com/submit",
+        "platform_key": "assisted"
+      }
+    },
+    {
+      "row": 818,
+      "error_type": "DUPLICATE_ENTRY",
+      "message": "Duplicate destination 'Hacker News / Manual Saas 818 Community' with URL 'https://news.ycombinator.com/submit' and platform 'assisted'",
+      "data_sample": {
+        "name": "Hacker News / Manual Saas 818 Community",
+        "url": "https://news.ycombinator.com/submit",
+        "platform_key": "assisted"
+      }
+    },
+    {
+      "row": 827,
+      "error_type": "DUPLICATE_ENTRY",
+      "message": "Duplicate destination 'Hacker News / Manual Indiehackers 827 Community' with URL 'https://news.ycombinator.com/submit' and platform 'assisted'",
+      "data_sample": {
+        "name": "Hacker News / Manual Indiehackers 827 Community",
+        "url": "https://news.ycombinator.com/submit",
+        "platform_key": "assisted"
+      }
+    },
+    {
+      "row": 828,
+      "error_type": "DUPLICATE_ENTRY",
+      "message": "Duplicate destination 'Hacker News / Manual React 828 Community' with URL 'https://news.ycombinator.com/submit' and platform 'assisted'",
+      "data_sample": {
+        "name": "Hacker News / Manual React 828 Community",
+        "url": "https://news.ycombinator.com/submit",
+        "platform_key": "assisted"
+      }
+    },
+    {
+      "row": 846,
+      "error_type": "DUPLICATE_ENTRY",
+      "message": "Duplicate destination 'Hacker News / Manual Automation 846 Community' with URL 'https://news.ycombinator.com/submit' and platform 'assisted'",
+      "data_sample": {
+        "name": "Hacker News / Manual Automation 846 Community",
+        "url": "https://news.ycombinator.com/submit",
+        "platform_key": "assisted"
+      }
+    },
+    {
+      "row": 850,
+      "error_type": "DUPLICATE_ENTRY",
+      "message": "Duplicate destination 'Duplicate Hub devops_850' with URL 'https://dev.to/fastapi_849' and platform 'devto'",
+      "data_sample": {
+        "name": "Duplicate Hub devops_850",
+        "url": "https://dev.to/fastapi_849",
+        "platform_key": "devto"
+      }
+    },
+    {
+      "row": 858,
+      "error_type": "DUPLICATE_ENTRY",
+      "message": "Duplicate destination 'Hacker News / Manual Startups 858 Community' with URL 'https://news.ycombinator.com/submit' and platform 'assisted'",
+      "data_sample": {
+        "name": "Hacker News / Manual Startups 858 Community",
+        "url": "https://news.ycombinator.com/submit",
+        "platform_key": "assisted"
+      }
+    },
+    {
+      "row": 867,
+      "error_type": "DUPLICATE_ENTRY",
+      "message": "Duplicate destination 'Hacker News / Manual Robotics 867 Community' with URL 'https://news.ycombinator.com/submit' and platform 'assisted'",
+      "data_sample": {
+        "name": "Hacker News / Manual Robotics 867 Community",
+        "url": "https://news.ycombinator.com/submit",
+        "platform_key": "assisted"
+      }
+    },
+    {
+      "row": 879,
+      "error_type": "DUPLICATE_ENTRY",
+      "message": "Duplicate destination 'Hacker News / Manual Growth 879 Community' with URL 'https://news.ycombinator.com/submit' and platform 'assisted'",
+      "data_sample": {
+        "name": "Hacker News / Manual Growth 879 Community",
+        "url": "https://news.ycombinator.com/submit",
+        "platform_key": "assisted"
+      }
+    },
+    {
+      "row": 880,
+      "error_type": "DUPLICATE_ENTRY",
+      "message": "Duplicate destination 'Hacker News / Manual Cloud 880 Community' with URL 'https://news.ycombinator.com/submit' and platform 'assisted'",
+      "data_sample": {
+        "name": "Hacker News / Manual Cloud 880 Community",
+        "url": "https://news.ycombinator.com/submit",
+        "platform_key": "assisted"
+      }
+    },
+    {
+      "row": 882,
+      "error_type": "DUPLICATE_ENTRY",
+      "message": "Duplicate destination 'Hacker News / Manual Saas 882 Community' with URL 'https://news.ycombinator.com/submit' and platform 'assisted'",
+      "data_sample": {
+        "name": "Hacker News / Manual Saas 882 Community",
+        "url": "https://news.ycombinator.com/submit",
+        "platform_key": "assisted"
+      }
+    },
+    {
+      "row": 889,
+      "error_type": "DUPLICATE_ENTRY",
+      "message": "Duplicate destination 'Hacker News / Manual Marketing 889 Community' with URL 'https://news.ycombinator.com/submit' and platform 'assisted'",
+      "data_sample": {
+        "name": "Hacker News / Manual Marketing 889 Community",
+        "url": "https://news.ycombinator.com/submit",
+        "platform_key": "assisted"
+      }
+    },
+    {
+      "row": 900,
+      "error_type": "DUPLICATE_ENTRY",
+      "message": "Duplicate destination 'Duplicate Hub automation_900' with URL 'https://blog.marketing_899.com' and platform 'ghost'",
+      "data_sample": {
+        "name": "Duplicate Hub automation_900",
+        "url": "https://blog.marketing_899.com",
+        "platform_key": "ghost"
+      }
+    },
+    {
+      "row": 902,
+      "error_type": "DUPLICATE_ENTRY",
+      "message": "Duplicate destination 'Hacker News / Manual Marketing 902 Community' with URL 'https://news.ycombinator.com/submit' and platform 'assisted'",
+      "data_sample": {
+        "name": "Hacker News / Manual Marketing 902 Community",
+        "url": "https://news.ycombinator.com/submit",
+        "platform_key": "assisted"
+      }
+    },
+    {
+      "row": 907,
+      "error_type": "DUPLICATE_ENTRY",
+      "message": "Duplicate destination 'Hacker News / Manual Startups 907 Community' with URL 'https://news.ycombinator.com/submit' and platform 'assisted'",
+      "data_sample": {
+        "name": "Hacker News / Manual Startups 907 Community",
+        "url": "https://news.ycombinator.com/submit",
+        "platform_key": "assisted"
+      }
+    },
+    {
+      "row": 908,
+      "error_type": "DUPLICATE_ENTRY",
+      "message": "Duplicate destination 'Hacker News / Manual Video 908 Community' with URL 'https://news.ycombinator.com/submit' and platform 'assisted'",
+      "data_sample": {
+        "name": "Hacker News / Manual Video 908 Community",
+        "url": "https://news.ycombinator.com/submit",
+        "platform_key": "assisted"
+      }
+    },
+    {
+      "row": 911,
+      "error_type": "DUPLICATE_ENTRY",
+      "message": "Duplicate destination 'Hacker News / Manual Automation 911 Community' with URL 'https://news.ycombinator.com/submit' and platform 'assisted'",
+      "data_sample": {
+        "name": "Hacker News / Manual Automation 911 Community",
+        "url": "https://news.ycombinator.com/submit",
+        "platform_key": "assisted"
+      }
+    },
+    {
+      "row": 919,
+      "error_type": "DUPLICATE_ENTRY",
+      "message": "Duplicate destination 'Hacker News / Manual Saas 919 Community' with URL 'https://news.ycombinator.com/submit' and platform 'assisted'",
+      "data_sample": {
+        "name": "Hacker News / Manual Saas 919 Community",
+        "url": "https://news.ycombinator.com/submit",
+        "platform_key": "assisted"
+      }
+    },
+    {
+      "row": 934,
+      "error_type": "DUPLICATE_ENTRY",
+      "message": "Duplicate destination 'Hacker News / Manual Indiehackers 934 Community' with URL 'https://news.ycombinator.com/submit' and platform 'assisted'",
+      "data_sample": {
+        "name": "Hacker News / Manual Indiehackers 934 Community",
+        "url": "https://news.ycombinator.com/submit",
+        "platform_key": "assisted"
+      }
+    },
+    {
+      "row": 946,
+      "error_type": "DUPLICATE_ENTRY",
+      "message": "Duplicate destination 'Hacker News / Manual Indiehackers 946 Community' with URL 'https://news.ycombinator.com/submit' and platform 'assisted'",
+      "data_sample": {
+        "name": "Hacker News / Manual Indiehackers 946 Community",
+        "url": "https://news.ycombinator.com/submit",
+        "platform_key": "assisted"
+      }
+    },
+    {
+      "row": 950,
+      "error_type": "DUPLICATE_ENTRY",
+      "message": "Duplicate destination 'Duplicate Hub cloud_950' with URL 'https://blog.ai_949.com' and platform 'ghost'",
+      "data_sample": {
+        "name": "Duplicate Hub cloud_950",
+        "url": "https://blog.ai_949.com",
+        "platform_key": "ghost"
+      }
+    },
+    {
+      "row": 961,
+      "error_type": "DUPLICATE_ENTRY",
+      "message": "Duplicate destination 'Hacker News / Manual React 961 Community' with URL 'https://news.ycombinator.com/submit' and platform 'assisted'",
+      "data_sample": {
+        "name": "Hacker News / Manual React 961 Community",
+        "url": "https://news.ycombinator.com/submit",
+        "platform_key": "assisted"
+      }
+    },
+    {
+      "row": 962,
+      "error_type": "DUPLICATE_ENTRY",
+      "message": "Duplicate destination 'Hacker News / Manual Robotics 962 Community' with URL 'https://news.ycombinator.com/submit' and platform 'assisted'",
+      "data_sample": {
+        "name": "Hacker News / Manual Robotics 962 Community",
+        "url": "https://news.ycombinator.com/submit",
+        "platform_key": "assisted"
+      }
+    },
+    {
+      "row": 966,
+      "error_type": "DUPLICATE_ENTRY",
+      "message": "Duplicate destination 'Hacker News / Manual Marketing 966 Community' with URL 'https://news.ycombinator.com/submit' and platform 'assisted'",
+      "data_sample": {
+        "name": "Hacker News / Manual Marketing 966 Community",
+        "url": "https://news.ycombinator.com/submit",
+        "platform_key": "assisted"
+      }
+    },
+    {
+      "row": 968,
+      "error_type": "DUPLICATE_ENTRY",
+      "message": "Duplicate destination 'Hacker News / Manual Webdev 968 Community' with URL 'https://news.ycombinator.com/submit' and platform 'assisted'",
+      "data_sample": {
+        "name": "Hacker News / Manual Webdev 968 Community",
+        "url": "https://news.ycombinator.com/submit",
+        "platform_key": "assisted"
+      }
+    },
+    {
+      "row": 977,
+      "error_type": "DUPLICATE_ENTRY",
+      "message": "Duplicate destination 'Hacker News / Manual Product 977 Community' with URL 'https://news.ycombinator.com/submit' and platform 'assisted'",
+      "data_sample": {
+        "name": "Hacker News / Manual Product 977 Community",
+        "url": "https://news.ycombinator.com/submit",
+        "platform_key": "assisted"
+      }
+    },
+    {
+      "row": 980,
+      "error_type": "DUPLICATE_ENTRY",
+      "message": "Duplicate destination 'Hacker News / Manual Product 980 Community' with URL 'https://news.ycombinator.com/submit' and platform 'assisted'",
+      "data_sample": {
+        "name": "Hacker News / Manual Product 980 Community",
+        "url": "https://news.ycombinator.com/submit",
+        "platform_key": "assisted"
+      }
+    },
+    {
+      "row": 992,
+      "error_type": "DUPLICATE_ENTRY",
+      "message": "Duplicate destination 'Hacker News / Manual Devops 992 Community' with URL 'https://news.ycombinator.com/submit' and platform 'assisted'",
+      "data_sample": {
+        "name": "Hacker News / Manual Devops 992 Community",
+        "url": "https://news.ycombinator.com/submit",
+        "platform_key": "assisted"
+      }
+    },
+    {
+      "row": 993,
+      "error_type": "DUPLICATE_ENTRY",
+      "message": "Duplicate destination 'Hacker News / Manual Startups 993 Community' with URL 'https://news.ycombinator.com/submit' and platform 'assisted'",
+      "data_sample": {
+        "name": "Hacker News / Manual Startups 993 Community",
+        "url": "https://news.ycombinator.com/submit",
+        "platform_key": "assisted"
+      }
+    },
+    {
+      "row": 998,
+      "error_type": "DUPLICATE_ENTRY",
+      "message": "Duplicate destination 'Hacker News / Manual Devops 998 Community' with URL 'https://news.ycombinator.com/submit' and platform 'assisted'",
+      "data_sample": {
+        "name": "Hacker News / Manual Devops 998 Community",
+        "url": "https://news.ycombinator.com/submit",
+        "platform_key": "assisted"
+      }
+    },
+    {
+      "row": 1000,
+      "error_type": "DUPLICATE_ENTRY",
+      "message": "Duplicate destination 'Duplicate Hub devops_1000' with URL 'https://devops_999.slack.com' and platform 'slack'",
+      "data_sample": {
+        "name": "Duplicate Hub devops_1000",
+        "url": "https://devops_999.slack.com",
+        "platform_key": "slack"
+      }
+    }
+  ],
+  "destinations_sample": [
+    {
+      "name": "Discourse Product 1 Community",
+      "url": "https://forum.product_1.org",
+      "platform_key": "discourse",
+      "connector_key": "discourse",
+      "surface": "topic",
+      "category": "technology",
+      "audience_tags": [
+        "engineers",
+        "devops"
+      ],
+      "language": "en",
+      "geo": "global",
+      "est_audience": 246645,
+      "frequency_cap": 6,
+      "self_promo_allowed": false,
+      "link_policy": "allowed",
+      "disclosure_required": true,
+      "automation_allowed": true,
+      "relevance_score": 3,
+      "relevance_reason": "High affinity with IncuBrix product creator audience",
+      "level": "L3",
+      "last_certified_at": "2026-10-17",
+      "id": "discourse_discourse_product_1_comm"
+    },
+    {
+      "name": "Discourse Machinelearning 2 Community",
+      "url": "https://forum.machinelearning_2.org",
+      "platform_key": "discourse",
+      "connector_key": "discourse",
+      "surface": "topic",
+      "category": "technology",
+      "audience_tags": [
+        "writers",
+        "bloggers"
+      ],
+      "language": "en",
+      "geo": "global",
+      "est_audience": 219773,
+      "frequency_cap": 2,
+      "self_promo_allowed": true,
+      "link_policy": "allowed",
+      "disclosure_required": true,
+      "automation_allowed": true,
+      "relevance_score": 4,
+      "relevance_reason": "High affinity with IncuBrix machinelearning creator audience",
+      "level": "L3",
+      "last_certified_at": "2026-10-17",
+      "id": "discourse_discourse_machinelearnin"
+    },
+    {
+      "name": "Hacker News / Manual Indiehackers 3 Community",
+      "url": "https://news.ycombinator.com/submit",
+      "platform_key": "assisted",
+      "connector_key": "assisted",
+      "surface": "moderated_forum",
+      "category": "business",
+      "audience_tags": [
+        "engineers",
+        "devops"
+      ],
+      "language": "en",
+      "geo": "global",
+      "est_audience": 80775,
+      "frequency_cap": 12,
+      "self_promo_allowed": true,
+      "link_policy": "allowed",
+      "disclosure_required": true,
+      "automation_allowed": false,
+      "relevance_score": 4,
+      "relevance_reason": "High affinity with IncuBrix indiehackers creator audience",
+      "level": "L1",
+      "last_certified_at": "2026-10-17",
+      "id": "assisted_hacker_news_/_manual_ind"
+    },
+    {
+      "name": "Dev.to Indiehackers 4 Community",
+      "url": "https://dev.to/indiehackers_4",
+      "platform_key": "devto",
+      "connector_key": "devto",
+      "surface": "article",
+      "category": "engineering",
+      "audience_tags": [
+        "writers",
+        "bloggers"
+      ],
+      "language": "en",
+      "geo": "global",
+      "est_audience": 149713,
+      "frequency_cap": 5,
+      "self_promo_allowed": false,
+      "link_policy": "disallowed",
+      "disclosure_required": true,
+      "automation_allowed": true,
+      "relevance_score": 4,
+      "relevance_reason": "High affinity with IncuBrix indiehackers creator audience",
+      "level": "L3",
+      "last_certified_at": "2026-10-17",
+      "id": "devto_dev.to_indiehackers_4_co"
+    },
+    {
+      "name": "Ghost Growth 5 Community",
+      "url": "https://blog.growth_5.com",
+      "platform_key": "ghost",
+      "connector_key": "ghost",
+      "surface": "post",
+      "category": "technology",
+      "audience_tags": [
+        "startups",
+        "indie_hackers"
+      ],
+      "language": "en",
+      "geo": "global",
+      "est_audience": 127105,
+      "frequency_cap": 13,
+      "self_promo_allowed": true,
+      "link_policy": "allowed",
+      "disclosure_required": false,
+      "automation_allowed": true,
+      "relevance_score": 3,
+      "relevance_reason": "High affinity with IncuBrix growth creator audience",
+      "level": "L3",
+      "last_certified_at": "2026-10-17",
+      "id": "ghost_ghost_growth_5_community"
+    },
+    {
+      "name": "Hashnode React 6 Community",
+      "url": "https://react_6.hashnode.dev",
+      "platform_key": "hashnode",
+      "connector_key": "hashnode",
+      "surface": "article",
+      "category": "business",
+      "audience_tags": [
+        "startups",
+        "indie_hackers"
+      ],
+      "language": "en",
+      "geo": "global",
+      "est_audience": 164462,
+      "frequency_cap": 4,
+      "self_promo_allowed": true,
+      "link_policy": "allowed",
+      "disclosure_required": false,
+      "automation_allowed": true,
+      "relevance_score": 4,
+      "relevance_reason": "High affinity with IncuBrix react creator audience",
+      "level": "L3",
+      "last_certified_at": "2026-10-17",
+      "id": "hashnode_hashnode_react_6_communi"
+    },
+    {
+      "name": "Ghost Opensource 7 Community",
+      "url": "https://blog.opensource_7.com",
+      "platform_key": "ghost",
+      "connector_key": "ghost",
+      "surface": "post",
+      "category": "artificial_intelligence",
+      "audience_tags": [
+        "developers",
+        "opensource"
+      ],
+      "language": "en",
+      "geo": "global",
+      "est_audience": 216556,
+      "frequency_cap": 9,
+      "self_promo_allowed": false,
+      "link_policy": "allowed",
+      "disclosure_required": true,
+      "automation_allowed": true,
+      "relevance_score": 5,
+      "relevance_reason": "High affinity with IncuBrix opensource creator audience",
+      "level": "L3",
+      "last_certified_at": "2026-10-17",
+      "id": "ghost_ghost_opensource_7_commu"
+    },
+    {
+      "name": "Hashnode Marketing 8 Community",
+      "url": "https://marketing_8.hashnode.dev",
+      "platform_key": "hashnode",
+      "connector_key": "hashnode",
+      "surface": "article",
+      "category": "technology",
+      "audience_tags": [
+        "marketers",
+        "video_creators"
+      ],
+      "language": "en",
+      "geo": "global",
+      "est_audience": 173795,
+      "frequency_cap": 12,
+      "self_promo_allowed": true,
+      "link_policy": "allowed",
+      "disclosure_required": true,
+      "automation_allowed": true,
+      "relevance_score": 5,
+      "relevance_reason": "High affinity with IncuBrix marketing creator audience",
+      "level": "L3",
+      "last_certified_at": "2026-10-17",
+      "id": "hashnode_hashnode_marketing_8_com"
+    },
+    {
+      "name": "Slack Community Opensource 10 Community",
+      "url": "https://opensource_10.slack.com",
+      "platform_key": "slack",
+      "connector_key": "slack",
+      "surface": "channel_post",
+      "category": "creator_economy",
+      "audience_tags": [
+        "startups",
+        "indie_hackers"
+      ],
+      "language": "en",
+      "geo": "global",
+      "est_audience": 56268,
+      "frequency_cap": 12,
+      "self_promo_allowed": true,
+      "link_policy": "allowed",
+      "disclosure_required": false,
+      "automation_allowed": true,
+      "relevance_score": 3,
+      "relevance_reason": "High affinity with IncuBrix opensource creator audience",
+      "level": "L2",
+      "last_certified_at": "2026-10-17",
+      "id": "slack_slack_community_opensour"
+    },
+    {
+      "name": "Partner Webhook Robotics 11 Community",
+      "url": "https://syndicate.robotics_11.net/webhook",
+      "platform_key": "webhook",
+      "connector_key": "webhook",
+      "surface": "partner_feed",
+      "category": "creator_economy",
+      "audience_tags": [
+        "writers",
+        "bloggers"
+      ],
+      "language": "en",
+      "geo": "global",
+      "est_audience": 57160,
+      "frequency_cap": 7,
+      "self_promo_allowed": true,
+      "link_policy": "disallowed",
+      "disclosure_required": false,
+      "automation_allowed": true,
+      "relevance_score": 5,
+      "relevance_reason": "High affinity with IncuBrix robotics creator audience",
+      "level": "L2",
+      "last_certified_at": "2026-10-17",
+      "id": "webhook_partner_webhook_robotics"
+    }
+  ]
+}
