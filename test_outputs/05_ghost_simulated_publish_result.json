@@ -1,0 +1,24 @@
+{
+  "test_name": "05_ghost_simulated_publish",
+  "endpoint": "/connector/v1/ghost/publish",
+  "http_method": "POST",
+  "target_url": "http://localhost:8000/connector/v1/ghost/publish",
+  "timestamp": 1792317418.8217359,
+  "success": true,
+  "status_code": 200,
+  "duration_ms": 5.73,
+  "response": {
+    "platform_post_id": "sim_ghost_post",
+    "url": "http://ghost:2368/simulated-post-sim_ghost_post",
+    "status": "published",
+    "metadata": {
+      "simulation": true,
+      "connector": "ghost"
+    },
+    "id": "sim_ghost_post",
+    "live_url": "http://ghost:2368/simulated-post-sim_ghost_post",
+    "success": true,
+    "destination": "ghost"
+  },
+  "error": null
+}

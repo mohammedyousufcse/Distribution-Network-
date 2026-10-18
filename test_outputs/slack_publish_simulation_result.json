@@ -1,0 +1,24 @@
+{
+  "test_name": "slack_publish_simulation",
+  "endpoint": "/connector/v1/slack/publish",
+  "http_method": "POST",
+  "target_url": "http://localhost:8000/connector/v1/slack/publish",
+  "timestamp": 1792317418.900744,
+  "success": true,
+  "status_code": 200,
+  "duration_ms": 4.7,
+  "response": {
+    "platform_post_id": "sim_slack_msg",
+    "url": "https://slack.com/archives/C01234567/psim_slack_msg",
+    "status": "published",
+    "metadata": {
+      "simulation": true,
+      "connector": "slack"
+    },
+    "id": "sim_slack_msg",
+    "live_url": "https://slack.com/archives/C01234567/psim_slack_msg",
+    "success": true,
+    "destination": "slack"
+  },
+  "error": null
+}

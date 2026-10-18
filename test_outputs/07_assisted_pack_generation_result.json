@@ -1,0 +1,29 @@
+{
+  "test_name": "07_assisted_pack_generation",
+  "endpoint": "/connector/v1/assisted/build_assist_pack",
+  "http_method": "POST",
+  "target_url": "http://localhost:8000/connector/v1/assisted/build_assist_pack",
+  "timestamp": 1792317418.8627737,
+  "success": true,
+  "status_code": 200,
+  "duration_ms": 5.54,
+  "response": {
+    "destination_id": null,
+    "destination_name": "Hacker News",
+    "deep_link": "https://news.ycombinator.com/submit",
+    "caption": "Automated batch test payload verifying operator-assisted pack generation.",
+    "title": "Show HN: Batch Runner Verification",
+    "files": [],
+    "checklist": [
+      "Review destination rules for 'Hacker News'.",
+      "Include required AI-assistance disclosure notice.",
+      "Ensure disclosure and formatting standards match community guidelines.",
+      "Verify no self-promotional spam flags are triggered.",
+      "Confirm media files or attachments are downloaded.",
+      "Paste formatted text into the destination submission portal.",
+      "Mark assist pack as completed after manual post submission."
+    ],
+    "status": "human_action_required"
+  },
+  "error": null
+}

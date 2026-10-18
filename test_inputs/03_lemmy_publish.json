@@ -1,0 +1,12 @@
+{
+  "name": "03_lemmy_simulated_publish",
+  "endpoint": "/connector/v1/lemmy/publish",
+  "http_method": "POST",
+  "body": {
+    "content": {
+      "title": "Batch Runner Lemmy Verification",
+      "text": "Automated batch test payload verifying Lemmy federated community posting.",
+      "simulation": true
+    }
+  }
+}

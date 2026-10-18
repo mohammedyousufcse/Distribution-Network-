@@ -1,0 +1,12 @@
+{
+  "name": "slack_publish_simulation",
+  "endpoint": "/connector/v1/slack/publish",
+  "http_method": "POST",
+  "body": {
+    "content": {
+      "title": "Release v2.0 Alert",
+      "text": "New production release has deployed successfully across all destination clusters.",
+      "simulation": true
+    }
+  }
+}

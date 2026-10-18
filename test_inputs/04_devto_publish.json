@@ -1,0 +1,17 @@
+{
+  "name": "04_devto_simulated_publish",
+  "endpoint": "/connector/v1/devto/publish",
+  "http_method": "POST",
+  "body": {
+    "content": {
+      "title": "Batch Runner Dev.to Article",
+      "text": "Automated batch test payload verifying Dev.to technical publication lifecycle.",
+      "metadata": {
+        "tags": ["python", "fastapi"]
+      }
+    },
+    "connection": {
+      "simulation": true
+    }
+  }
+}

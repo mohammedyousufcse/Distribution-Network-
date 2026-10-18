@@ -1,0 +1,21 @@
+{
+  "test_name": "02_discourse_simulated_publish",
+  "endpoint": "/connector/v1/discourse/publish",
+  "http_method": "POST",
+  "target_url": "http://localhost:8000/connector/v1/discourse/publish",
+  "timestamp": 1792317418.7059245,
+  "success": true,
+  "status_code": 200,
+  "duration_ms": 49.18,
+  "response": {
+    "success": true,
+    "id": "sim_disc_post",
+    "platform_post_id": "sim_disc_post",
+    "url": "https://meta.discourse.org/t/topic/sim_disc_post",
+    "live_url": "https://meta.discourse.org/t/topic/sim_disc_post",
+    "status": "published",
+    "simulation": true,
+    "destination": "discourse"
+  },
+  "error": null
+}

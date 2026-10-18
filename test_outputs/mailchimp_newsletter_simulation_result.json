@@ -1,0 +1,26 @@
+{
+  "test_name": "mailchimp_newsletter_simulation",
+  "endpoint": "/connector/v1/mailchimp/publish",
+  "http_method": "POST",
+  "target_url": "http://localhost:8000/connector/v1/mailchimp/publish",
+  "timestamp": 1792317418.9214916,
+  "success": true,
+  "status_code": 200,
+  "duration_ms": 4.86,
+  "response": {
+    "platform_post_id": "sim_mc_79206743",
+    "url": "https://mailchi.mp/campaigns/sim_mc_79206743",
+    "status": "sent",
+    "metadata": {
+      "simulation": true,
+      "platform": "mailchimp",
+      "subject": "IncuBrix Developer Dispatch #42",
+      "recipients": 1250
+    },
+    "id": "sim_mc_79206743",
+    "live_url": "https://mailchi.mp/campaigns/sim_mc_79206743",
+    "success": true,
+    "destination": "mailchimp"
+  },
+  "error": null
+}

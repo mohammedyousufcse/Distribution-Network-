@@ -1,0 +1,14 @@
+{
+  "name": "06_webhook_simulated_publish",
+  "endpoint": "/connector/v1/webhook/publish",
+  "http_method": "POST",
+  "body": {
+    "content": {
+      "text": "Automated batch test payload verifying generic partner HMAC-signed webhook delivery."
+    },
+    "connection": {
+      "secret": "batch_test_secret_123",
+      "simulation": true
+    }
+  }
+}

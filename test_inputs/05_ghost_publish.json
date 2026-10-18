@@ -1,0 +1,14 @@
+{
+  "name": "05_ghost_simulated_publish",
+  "endpoint": "/connector/v1/ghost/publish",
+  "http_method": "POST",
+  "body": {
+    "content": {
+      "title": "Batch Runner Ghost Article",
+      "text": "<p>Automated batch test payload verifying Ghost CMS Admin API v5.</p>"
+    },
+    "connection": {
+      "simulation": true
+    }
+  }
+}

@@ -1,0 +1,13 @@
+{
+  "name": "audience_relevance_scoring",
+  "endpoint": "/connector/v1/score_relevance",
+  "http_method": "POST",
+  "body": {
+    "destination": {
+      "id": "open_ai_devs",
+      "name": "OpenAI Developer Hub",
+      "category": "artificial_intelligence",
+      "audience_tags": ["ai", "llm", "neural", "models"]
+    }
+  }
+}

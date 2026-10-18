@@ -1,0 +1,16 @@
+{
+  "test_name": "01_health_probe",
+  "endpoint": "/health",
+  "http_method": "GET",
+  "target_url": "http://localhost:8000/health",
+  "timestamp": 1792317418.6600873,
+  "success": true,
+  "status_code": 200,
+  "duration_ms": 30.76,
+  "response": {
+    "status": "healthy",
+    "service": "Distribution: Long-Tail Destination Network",
+    "environment": "development"
+  },
+  "error": null
+}

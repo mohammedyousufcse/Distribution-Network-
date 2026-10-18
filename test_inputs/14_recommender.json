@@ -1,0 +1,12 @@
+{
+  "name": "destination_recommendation",
+  "endpoint": "/connector/v1/recommend",
+  "http_method": "POST",
+  "body": {
+    "title": "Scaling Distributed Async Microservices with FastAPI",
+    "text": "Deep architectural analysis on high-throughput event processing and decentralized consensus nodes. What are your thoughts on this approach?",
+    "tags": ["python", "architecture", "microservices"],
+    "audience_pillar": "saas",
+    "limit": 5
+  }
+}

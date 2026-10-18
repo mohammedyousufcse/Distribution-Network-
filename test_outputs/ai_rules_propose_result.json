@@ -1,0 +1,27 @@
+{
+  "test_name": "ai_rules_propose",
+  "endpoint": "/connector/v1/rules/propose",
+  "http_method": "POST",
+  "target_url": "http://localhost:8000/connector/v1/rules/propose",
+  "timestamp": 1792317419.012352,
+  "success": true,
+  "status_code": 200,
+  "duration_ms": 28.79,
+  "response": {
+    "proposal_id": "rule_prop_f5ce4753cf",
+    "community_name": "Strict Python Community",
+    "rules_url": "https://python.community/rules",
+    "extracted_at": 1792317419.037933,
+    "status": "pending_human_confirmation",
+    "confidence_score": 0.98,
+    "reasoning": "Detected strict ban on self-promotion or advertising.; Detected prohibition on external links or link dropping.; Explicit weekly rate constraint detected: max 2 posts/week.; Guidelines require explicit disclosure or tagging for AI-generated text.",
+    "proposed_rules": {
+      "weekly_limit": 2,
+      "allow_links": false,
+      "allow_self_promotion": false,
+      "require_ai_disclosure": true,
+      "title_max_chars": 255
+    }
+  },
+  "error": null
+}

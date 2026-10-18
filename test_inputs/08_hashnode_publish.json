@@ -1,0 +1,13 @@
+{
+  "name": "hashnode_publish_simulation",
+  "endpoint": "/connector/v1/hashnode/publish",
+  "http_method": "POST",
+  "body": {
+    "content": {
+      "title": "Scaling Distributed Microservices with IncuBrix",
+      "text": "Deep architectural analysis on high-throughput event processing and decentralized consensus nodes.",
+      "tags": ["architecture", "python"],
+      "simulation": true
+    }
+  }
+}

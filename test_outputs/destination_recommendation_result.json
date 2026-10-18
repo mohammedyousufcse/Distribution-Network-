@@ -1,0 +1,63 @@
+{
+  "test_name": "destination_recommendation",
+  "endpoint": "/connector/v1/recommend",
+  "http_method": "POST",
+  "target_url": "http://localhost:8000/connector/v1/recommend",
+  "timestamp": 1792317419.0547507,
+  "success": true,
+  "status_code": 200,
+  "duration_ms": 25.04,
+  "response": [
+    {
+      "destination_id": "discourse_dev_forum",
+      "destination_name": "Developer Discourse Community",
+      "connector_key": "discourse",
+      "fit_score": 0.4,
+      "eligible": true,
+      "relevance_score": 2,
+      "reason": "High engagement affinity: conversational/discussion content suited for forum/community.; Relevance to SAAS audience: 2/5.",
+      "rank": 1
+    },
+    {
+      "destination_id": "discourse_gaming_hub",
+      "destination_name": "Gaming Discussion Hub",
+      "connector_key": "discourse",
+      "fit_score": 0.3,
+      "eligible": true,
+      "relevance_score": 1,
+      "reason": "High engagement affinity: conversational/discussion content suited for forum/community.; Relevance to SAAS audience: 1/5.",
+      "rank": 2
+    },
+    {
+      "destination_id": "lemmy_technology",
+      "destination_name": "Lemmy Technology Community",
+      "connector_key": "lemmy",
+      "fit_score": 0.3,
+      "eligible": true,
+      "relevance_score": 1,
+      "reason": "High engagement affinity: conversational/discussion content suited for forum/community.; Relevance to SAAS audience: 1/5.",
+      "rank": 3
+    },
+    {
+      "destination_id": "lemmy_programming",
+      "destination_name": "Lemmy Programming Group",
+      "connector_key": "lemmy",
+      "fit_score": 0.3,
+      "eligible": true,
+      "relevance_score": 1,
+      "reason": "High engagement affinity: conversational/discussion content suited for forum/community.; Relevance to SAAS audience: 1/5.",
+      "rank": 4
+    },
+    {
+      "destination_id": "assisted_hackernews_showhn",
+      "destination_name": "Hacker News - Show HN",
+      "connector_key": "assisted",
+      "fit_score": 0.2,
+      "eligible": true,
+      "relevance_score": 2,
+      "reason": "Relevance to SAAS audience: 2/5.",
+      "rank": 5
+    }
+  ],
+  "error": null
+}

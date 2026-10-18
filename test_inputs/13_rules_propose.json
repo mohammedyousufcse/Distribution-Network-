@@ -1,0 +1,10 @@
+{
+  "name": "ai_rules_propose",
+  "endpoint": "/connector/v1/rules/propose",
+  "http_method": "POST",
+  "body": {
+    "community_name": "Strict Python Community",
+    "rules_text": "No self-promotion allowed. External links are forbidden in main posts. Maximum 2 posts per week. AI content must be disclosed.",
+    "rules_url": "https://python.community/rules"
+  }
+}

@@ -1,0 +1,12 @@
+{
+  "name": "02_discourse_simulated_publish",
+  "endpoint": "/connector/v1/discourse/publish",
+  "http_method": "POST",
+  "body": {
+    "content": {
+      "title": "Batch Runner Discourse Verification",
+      "text": "Automated batch test payload verifying Discourse community post creation and rules.",
+      "simulation": true
+    }
+  }
+}

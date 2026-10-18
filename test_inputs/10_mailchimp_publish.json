@@ -1,0 +1,12 @@
+{
+  "name": "mailchimp_newsletter_simulation",
+  "endpoint": "/connector/v1/mailchimp/publish",
+  "http_method": "POST",
+  "body": {
+    "content": {
+      "title": "IncuBrix Developer Dispatch #42",
+      "text": "Weekly newsletter roundup covering long-tail community publishing, Ghost 5 integration, and Lemmy federated nodes.",
+      "simulation": true
+    }
+  }
+}

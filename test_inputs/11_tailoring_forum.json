@@ -1,0 +1,15 @@
+{
+  "name": "tailoring_forum_discussion",
+  "endpoint": "/connector/v1/tailor",
+  "http_method": "POST",
+  "body": {
+    "content": {
+      "title": "# Architecture Best Practices",
+      "text": "Here is an in-depth guide on handling sliding-window rate limiters with Redis and Python."
+    },
+    "destination": {
+      "id": "discourse_dev_forum",
+      "connector_key": "discourse"
+    }
+  }
+}

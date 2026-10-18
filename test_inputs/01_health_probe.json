@@ -1,0 +1,5 @@
+{
+  "name": "01_health_probe",
+  "endpoint": "/health",
+  "http_method": "GET"
+}
