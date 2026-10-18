@@ -1,0 +1,28 @@
+{
+  "certification_id": "cert_discourse_dev_forum_20261017_170946",
+  "destination_id": "discourse_dev_forum",
+  "timestamp": "2026-10-17T17:09:46.769199+00:00",
+  "simulation": true,
+  "status": "FAILED",
+  "steps": {
+    "config_loaded": {
+      "ok": true,
+      "destination_name": "Developer Discourse Community",
+      "connector_key": "discourse"
+    },
+    "validate": {
+      "ok": true
+    },
+    "publish": {
+      "ok": false,
+      "error": "DiscourseConnector.publish() takes 2 positional arguments but 4 were given"
+    }
+  },
+  "errors": [
+    "Publish failed: DiscourseConnector.publish() takes 2 positional arguments but 4 were given"
+  ],
+  "post_id": null,
+  "live_url": null,
+  "cleanup_verified": false,
+  "connector_key": "discourse"
+}

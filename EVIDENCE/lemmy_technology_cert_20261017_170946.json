@@ -1,0 +1,28 @@
+{
+  "certification_id": "cert_lemmy_technology_20261017_170946",
+  "destination_id": "lemmy_technology",
+  "timestamp": "2026-10-17T17:09:46.427149+00:00",
+  "simulation": true,
+  "status": "FAILED",
+  "steps": {
+    "config_loaded": {
+      "ok": true,
+      "destination_name": "Lemmy Technology Community",
+      "connector_key": "lemmy"
+    },
+    "validate": {
+      "ok": true
+    },
+    "publish": {
+      "ok": false,
+      "error": "LemmyConnector.publish() takes 2 positional arguments but 4 were given"
+    }
+  },
+  "errors": [
+    "Publish failed: LemmyConnector.publish() takes 2 positional arguments but 4 were given"
+  ],
+  "post_id": null,
+  "live_url": null,
+  "cleanup_verified": false,
+  "connector_key": "lemmy"
+}

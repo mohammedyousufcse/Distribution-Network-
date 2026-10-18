@@ -1,0 +1,14 @@
+{
+  "certification_id": "cert_non_existent_destination_20261017_172751",
+  "destination_id": "non_existent_destination",
+  "timestamp": "2026-10-17T17:27:51.104327+00:00",
+  "simulation": true,
+  "status": "FAILED",
+  "steps": {},
+  "errors": [
+    "Destination 'non_existent_destination' not found in catalogue."
+  ],
+  "post_id": null,
+  "live_url": null,
+  "cleanup_verified": false
+}

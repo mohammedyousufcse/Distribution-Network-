@@ -1,0 +1,25 @@
+{
+  "certification_id": "cert_discourse_dev_forum_20261017_170348",
+  "destination_id": "discourse_dev_forum",
+  "timestamp": "2026-10-17T17:03:48.843284+00:00",
+  "simulation": true,
+  "status": "FAILED",
+  "steps": {
+    "config_loaded": {
+      "ok": true,
+      "destination_name": "Developer Discourse Community",
+      "connector_key": "discourse"
+    },
+    "validate": {
+      "ok": false,
+      "violations": []
+    }
+  },
+  "errors": [
+    "Validation failed: []"
+  ],
+  "post_id": null,
+  "live_url": null,
+  "cleanup_verified": false,
+  "connector_key": "discourse"
+}

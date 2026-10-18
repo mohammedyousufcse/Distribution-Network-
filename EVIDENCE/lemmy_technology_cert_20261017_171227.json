@@ -1,0 +1,28 @@
+{
+  "certification_id": "cert_lemmy_technology_20261017_171227",
+  "destination_id": "lemmy_technology",
+  "timestamp": "2026-10-17T17:12:27.293737+00:00",
+  "simulation": true,
+  "status": "FAILED",
+  "steps": {
+    "config_loaded": {
+      "ok": true,
+      "destination_name": "Lemmy Technology Community",
+      "connector_key": "lemmy"
+    },
+    "validate": {
+      "ok": true
+    },
+    "publish": {
+      "ok": false,
+      "error": "Lemmy auth failed: incorrect_login"
+    }
+  },
+  "errors": [
+    "Publish failed: Lemmy auth failed: incorrect_login"
+  ],
+  "post_id": null,
+  "live_url": null,
+  "cleanup_verified": false,
+  "connector_key": "lemmy"
+}

@@ -1,0 +1,44 @@
+{
+  "certification_id": "cert_discourse_dev_forum_20261018_095819",
+  "destination_id": "discourse_dev_forum",
+  "timestamp": "2026-10-18T09:58:19.378004+00:00",
+  "simulation": true,
+  "status": "SUCCESS",
+  "steps": {
+    "config_loaded": {
+      "ok": true,
+      "destination_name": "Developer Discourse Community",
+      "connector_key": "discourse"
+    },
+    "validate": {
+      "ok": true
+    },
+    "publish": {
+      "ok": true,
+      "platform_post_id": "sim_disc_cert_idem_20261018_095819",
+      "live_url": "https://meta.discourse.org/t/topic/sim_disc_cert_idem_20261018_095819",
+      "status": "published"
+    },
+    "get_status": {
+      "ok": true,
+      "status": "published",
+      "live_url": "https://meta.discourse.org/t/topic/sim_disc_cert_idem_20261018_095819"
+    },
+    "delete": {
+      "ok": true,
+      "details": {
+        "success": true,
+        "deleted": true,
+        "id": "sim_disc_cert_idem_20261018_095819",
+        "platform_post_id": "sim_disc_cert_idem_20261018_095819",
+        "simulation": true
+      }
+    }
+  },
+  "errors": [],
+  "post_id": "sim_disc_cert_idem_20261018_095819",
+  "live_url": "https://meta.discourse.org/t/topic/sim_disc_cert_idem_20261018_095819",
+  "cleanup_verified": true,
+  "connector_key": "discourse",
+  "duration_ms": 0.68
+}

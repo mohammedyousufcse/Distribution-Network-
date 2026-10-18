@@ -1,0 +1,28 @@
+{
+  "certification_id": "cert_discourse_dev_forum_20261017_171229",
+  "destination_id": "discourse_dev_forum",
+  "timestamp": "2026-10-17T17:12:29.222485+00:00",
+  "simulation": true,
+  "status": "FAILED",
+  "steps": {
+    "config_loaded": {
+      "ok": true,
+      "destination_name": "Developer Discourse Community",
+      "connector_key": "discourse"
+    },
+    "validate": {
+      "ok": true
+    },
+    "publish": {
+      "ok": false,
+      "error": "Discourse auth failed: You are not permitted to view the requested resource. The API username or key is invalid."
+    }
+  },
+  "errors": [
+    "Publish failed: Discourse auth failed: You are not permitted to view the requested resource. The API username or key is invalid."
+  ],
+  "post_id": null,
+  "live_url": null,
+  "cleanup_verified": false,
+  "connector_key": "discourse"
+}
