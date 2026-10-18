@@ -1,0 +1,44 @@
+{
+  "certification_id": "cert_lemmy_technology_20261018_160618",
+  "destination_id": "lemmy_technology",
+  "timestamp": "2026-10-18T16:06:18.985571+00:00",
+  "simulation": true,
+  "status": "SUCCESS",
+  "steps": {
+    "config_loaded": {
+      "ok": true,
+      "destination_name": "Lemmy Technology Community",
+      "connector_key": "lemmy"
+    },
+    "validate": {
+      "ok": true
+    },
+    "publish": {
+      "ok": true,
+      "platform_post_id": "sim_lemmy_cert_idem_20261018_160618",
+      "live_url": "https://lemmy.world/post/sim_lemmy_cert_idem_20261018_160618",
+      "status": "published"
+    },
+    "get_status": {
+      "ok": true,
+      "status": "published",
+      "live_url": "https://lemmy.world/post/sim_lemmy_cert_idem_20261018_160618"
+    },
+    "delete": {
+      "ok": true,
+      "details": {
+        "success": true,
+        "deleted": true,
+        "id": "sim_lemmy_cert_idem_20261018_160618",
+        "platform_post_id": "sim_lemmy_cert_idem_20261018_160618",
+        "simulation": true
+      }
+    }
+  },
+  "errors": [],
+  "post_id": "sim_lemmy_cert_idem_20261018_160618",
+  "live_url": "https://lemmy.world/post/sim_lemmy_cert_idem_20261018_160618",
+  "cleanup_verified": true,
+  "connector_key": "lemmy",
+  "duration_ms": 0.73
+}
