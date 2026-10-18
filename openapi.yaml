@@ -1,0 +1,967 @@
+openapi: 3.1.0
+info:
+  title: 'Distribution: Long-Tail Destination Network API'
+  description: 'Distribution: Long-Tail Destination Network - Foundation Service REST
+    API specification covering health probes, background job tracking, connector manifest
+    retrieval, configuration-driven multi-destination catalogue, automated certification
+    harness, and destination connector operations across six Core connectors (Discourse,
+    Lemmy, Dev.to, Ghost, HMAC Webhook, Assisted) plus Mock and Mastodon connectors.'
+  version: 1.0.0
+paths:
+  /health:
+    get:
+      tags:
+      - Health & Probes
+      summary: Liveness probe
+      description: Return basic health status indicating the application process is
+        running.
+      operationId: get_health_health_get
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HealthResponse'
+  /ready:
+    get:
+      tags:
+      - Health & Probes
+      summary: Readiness probe
+      description: Return readiness status indicating the application is prepared
+        to handle requests.
+      operationId: get_ready_ready_get
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ReadyResponse'
+  /connector/v1/jobs/{job_id}:
+    get:
+      tags:
+      - Connectors
+      summary: Get background job status
+      description: 'Retrieve the execution status and results of an asynchronous connector
+        operation.
+
+
+        **Status States:**
+
+        - `queued`: Accepted and awaiting execution.
+
+        - `running`: In progress.
+
+        - `succeeded`: Completed with published post details in `result`.
+
+        - `failed`: Failed with error details in `error`.
+
+
+        *Note: Job status records are stored in memory and reset upon application
+        restart.*'
+      operationId: get_job_status_connector_v1_jobs__job_id__get
+      parameters:
+      - name: job_id
+        in: path
+        required: true
+        schema:
+          type: string
+          title: Job Id
+      responses:
+        '200':
+          description: Job status retrieved successfully.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/JobStatusResponse'
+        '404':
+          description: Not Found - Job identifier not found.
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+  /connector/v1/destinations:
+    get:
+      tags:
+      - Connectors
+      summary: List destination catalogue
+      description: Returns all configured destinations loaded from the configuration-driven
+        destinations catalogue.
+      operationId: list_destinations_connector_v1_destinations_get
+      parameters:
+      - name: connector_key
+        in: query
+        required: false
+        schema:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Connector Key
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                title: Response List Destinations Connector V1 Destinations Get
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+  /connector/v1/destinations/{destination_id}:
+    get:
+      tags:
+      - Connectors
+      summary: Get destination profile
+      description: Retrieve destination details, rate limits, format limits, and posting
+        rules.
+      operationId: get_destination_connector_v1_destinations__destination_id__get
+      parameters:
+      - name: destination_id
+        in: path
+        required: true
+        schema:
+          type: string
+          title: Destination Id
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                title: Response Get Destination Connector V1 Destinations  Destination
+                  Id  Get
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+  /connector/v1/destinations/{destination_id}/certify:
+    post:
+      tags:
+      - Connectors
+      summary: Execute automated destination certification
+      description: Executes the full 12-step certification workflow for a destination,
+        verifying policy rules, validation, publishing, status retrieval, deletion,
+        and storing timestamped evidence in EVIDENCE/.
+      operationId: certify_destination_connector_v1_destinations__destination_id__certify_post
+      parameters:
+      - name: destination_id
+        in: path
+        required: true
+        schema:
+          type: string
+          title: Destination Id
+      - name: simulation
+        in: query
+        required: false
+        schema:
+          type: boolean
+          description: Run probe in credential-free simulation mode
+          default: false
+          title: Simulation
+        description: Run probe in credential-free simulation mode
+      responses:
+        '200':
+          description: Certification executed and evidence stored.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CertificationResult'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+  /connector/v1/tailor:
+    post:
+      tags:
+      - Connectors
+      summary: Tailor content for destination
+      description: Adapts content for destination surface (discussion prompts for
+        forums, canonical links for articles, word-boundary truncation).
+      operationId: tailor_content_endpoint_connector_v1_tailor_post
+      requestBody:
+        content:
+          application/json:
+            schema:
+              additionalProperties: true
+              type: object
+              title: Payload
+        required: true
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                title: Response Tailor Content Endpoint Connector V1 Tailor Post
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+  /connector/v1/score_relevance:
+    post:
+      tags:
+      - Connectors
+      summary: Score destination audience relevance
+      description: Scores destination affinity from 1 to 5 against IncuBrix core audiences
+        (AI, video, marketing, SaaS, creators, founders).
+      operationId: score_relevance_endpoint_connector_v1_score_relevance_post
+      requestBody:
+        content:
+          application/json:
+            schema:
+              additionalProperties: true
+              type: object
+              title: Payload
+        required: true
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                title: Response Score Relevance Endpoint Connector V1 Score Relevance
+                  Post
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+  /connector/v1/catalogue/import:
+    post:
+      tags:
+      - Connectors
+      summary: Import destination catalogue from CSV
+      description: Validates, de-duplicates, checks reachability, and imports destinations
+        from CSV in under 5 minutes.
+      operationId: import_catalogue_endpoint_connector_v1_catalogue_import_post
+      requestBody:
+        content:
+          application/json:
+            schema:
+              additionalProperties: true
+              type: object
+              title: Payload
+        required: true
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                title: Response Import Catalogue Endpoint Connector V1 Catalogue Import
+                  Post
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+  /connector/v1/rules/propose:
+    post:
+      tags:
+      - Connectors
+      summary: Propose posting rules from community guidelines
+      description: Analyzes guidelines text to propose posting rules (weekly cap,
+        self-promotion, links, AI disclosure).
+      operationId: propose_rules_endpoint_connector_v1_rules_propose_post
+      requestBody:
+        content:
+          application/json:
+            schema:
+              additionalProperties: true
+              type: object
+              title: Payload
+        required: true
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                title: Response Propose Rules Endpoint Connector V1 Rules Propose
+                  Post
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+  /connector/v1/rules/confirm:
+    post:
+      tags:
+      - Connectors
+      summary: Confirm proposed posting rules
+      description: Human review step that confirms or overrides proposed posting rules
+        before activation.
+      operationId: confirm_rules_endpoint_connector_v1_rules_confirm_post
+      requestBody:
+        content:
+          application/json:
+            schema:
+              additionalProperties: true
+              type: object
+              title: Payload
+        required: true
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                title: Response Confirm Rules Endpoint Connector V1 Rules Confirm
+                  Post
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+  /connector/v1/recommend:
+    post:
+      tags:
+      - Connectors
+      summary: Recommend and rank destinations for content
+      description: Ranks destinations in catalogue by audience relevance, format affinity,
+        and rule compatibility with explanations.
+      operationId: recommend_destinations_endpoint_connector_v1_recommend_post
+      requestBody:
+        content:
+          application/json:
+            schema:
+              additionalProperties: true
+              type: object
+              title: Payload
+        required: true
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                title: Response Recommend Destinations Endpoint Connector V1 Recommend
+                  Post
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+  /connector/v1/recommend/benchmark:
+    get:
+      tags:
+      - Connectors
+      summary: Benchmark recommender precision@k
+      description: Evaluates ranking precision of top 10 recommendations across labelled
+        ground-truth dataset.
+      operationId: benchmark_recommendations_endpoint_connector_v1_recommend_benchmark_get
+      parameters:
+      - name: k
+        in: query
+        required: false
+        schema:
+          type: integer
+          default: 10
+          title: K
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                title: Response Benchmark Recommendations Endpoint Connector V1 Recommend
+                  Benchmark Get
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+  /connector/v1/{connector_key}/manifest:
+    get:
+      tags:
+      - Connectors
+      summary: Retrieve connector manifest
+      description: Returns the machine-readable connector manifest specifying limits,
+        auth, tier, rate limits, and capabilities.
+      operationId: get_connector_manifest_connector_v1__connector_key__manifest_get
+      parameters:
+      - name: connector_key
+        in: path
+        required: true
+        description: Registered destination connector identifier.
+        schema:
+          type: string
+          enum:
+          - mock
+          - mastodon
+          - discourse
+          - lemmy
+          - devto
+          - ghost
+          - webhook
+          - assisted
+          - hashnode
+          - slack
+          - mailchimp
+          example: discourse
+      responses:
+        '200':
+          description: Connector manifest returned successfully.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ConnectorManifest'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+  /connector/v1/{connector_key}/{method}:
+    post:
+      tags:
+      - Connectors
+      summary: Execute connector action
+      description: 'Dispatches an operation to a registered destination connector
+        with policy enforcement.
+
+
+        **Supported Methods:**
+
+        - `validate`: Validates content structure and destination constraints (length,
+        non-empty text).
+
+        - `publish`: Enforces destination policy, frequency cap, and idempotency before
+        simulating publishing locally.
+
+        - `get_status`: Looks up post details by ID (requires `post_id` in request
+        body).
+
+        - `delete`: Deletes a post by ID (requires `post_id` in request body).
+
+        - `fetch_metrics`: Fetches normalized engagement metrics.
+
+        - `refresh_auth`: Refreshes authorization token when supported.
+
+        - `build_assist_pack`: Generates operator pack for assisted destinations.
+
+        - `manifest`: Returns connector capability manifest.
+
+
+        **Idempotency (`Idempotency-Key` header):**
+
+        - For `publish`, pass the optional `Idempotency-Key: <unique_string>` header.
+
+        - **First Request:** Processes publication normally and stores the response
+        against `(connector_key, key)`.
+
+        - **Duplicate Request:** When the same key is submitted again with the same
+        request payload within the TTL window, the original response and original
+        post ID are returned without creating another post or consuming frequency
+        quota.
+
+        - **Payload Conflict:** If the same key is reused with a different request
+        payload, the server returns HTTP 409 Conflict with `error_code: IDEMPOTENCY_CONFLICT`.
+
+        - **Scope & TTL:** Keys are strictly scoped per connector and expire automatically
+        after `IDEMPOTENCY_TTL_SECONDS` (default 300s).
+
+        - **Concurrency Safety:** Concurrent duplicate requests within the process
+        are synchronized so only one post is created.
+
+
+        *Important: Idempotency records are maintained entirely in-memory within this
+        single application process; state resets when the process/container restarts
+        and does not synchronize across multi-replica deployments.*'
+      operationId: handle_connector_action_connector_v1__connector_key___method__post
+      parameters:
+      - name: connector_key
+        in: path
+        required: true
+        description: Target destination connector key.
+        schema:
+          type: string
+          enum:
+          - mock
+          - mastodon
+          - discourse
+          - lemmy
+          - devto
+          - ghost
+          - webhook
+          - assisted
+          - hashnode
+          - slack
+          - mailchimp
+          example: discourse
+      - name: method
+        in: path
+        required: true
+        description: Connector contract method to invoke.
+        schema:
+          type: string
+          enum:
+          - validate
+          - publish
+          - get_status
+          - delete
+          - fetch_metrics
+          - refresh_auth
+          - build_assist_pack
+          example: publish
+      - name: async
+        in: query
+        required: false
+        description: Trigger asynchronous background processing (HTTP 202 Accepted).
+        schema:
+          type: boolean
+          example: false
+      - name: Prefer
+        in: header
+        required: false
+        description: RFC 7240 header; pass 'respond-async' for asynchronous background
+          processing.
+        schema:
+          type: string
+          example: respond-async
+      - name: Idempotency-Key
+        in: header
+        required: false
+        description: Unique client idempotency token preventing duplicate publishing
+          on network timeouts/retries.
+        schema:
+          type: string
+          example: idem_123e4567-e89b-12d3-a456-426614174000
+      requestBody:
+        content:
+          application/json:
+            schema:
+              anyOf:
+              - $ref: '#/components/schemas/ConnectorRequest'
+              - type: 'null'
+              title: Request
+      responses:
+        '200':
+          description: Operation completed successfully.
+          content:
+            application/json:
+              schema:
+                title: Response Handle Connector Action Connector V1  Connector Key   Method  Post
+        '202':
+          description: Accepted - Publish operation accepted for background processing.
+        '400':
+          description: Bad Request - Invalid method, spec violation, missing content,
+            or missing post ID.
+        '404':
+          description: Not Found - Unknown connector key or post ID not found.
+        '409':
+          description: Conflict - Idempotency key reused with a different request
+            payload.
+        '429':
+          description: Too Many Requests - Frequency cap exceeded.
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+components:
+  schemas:
+    ConnectorRequest:
+      properties:
+        content:
+          anyOf:
+          - additionalProperties: true
+            type: object
+          - type: 'null'
+          title: Content
+          description: Content payload for 'validate' and 'publish'. Must contain
+            a non-empty 'text' string.
+          examples:
+          - text: Sample announcement to publish to mock destination
+        rendition:
+          anyOf:
+          - additionalProperties: true
+            type: object
+          - type: 'null'
+          title: Rendition
+          description: Appendix A rendition object (alias for content).
+        destination:
+          anyOf:
+          - {}
+          - type: 'null'
+          title: Destination
+          description: Target destination configuration dict or stable destination
+            ID.
+        connection:
+          anyOf:
+          - additionalProperties: true
+            type: object
+          - type: 'null'
+          title: Connection
+          description: Connection credentials dict or authentication tokens.
+        post_id:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Post Id
+          description: Unique post identifier required for 'get_status' and 'delete'.
+          examples:
+          - mock_a1b2c3d4e5f6
+        platform_post_id:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Platform Post Id
+          description: Appendix A platform post ID (alias for post_id).
+        async:
+          anyOf:
+          - type: boolean
+          - type: 'null'
+          title: Async
+          description: Optional flag to request asynchronous background processing.
+        idempotency_key:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Idempotency Key
+          description: Optional idempotency key in request body.
+        since:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Since
+          description: ISO-8601 timestamp filter for 'fetch_metrics'.
+      additionalProperties: true
+      type: object
+      title: ConnectorRequest
+      description: Unified request body supporting both standard and Appendix A connector
+        contracts.
+    HTTPValidationError:
+      properties:
+        detail:
+          items:
+            $ref: '#/components/schemas/ValidationError'
+          type: array
+          title: Detail
+      type: object
+      title: HTTPValidationError
+    HealthResponse:
+      properties:
+        status:
+          type: string
+          title: Status
+        service:
+          type: string
+          title: Service
+        environment:
+          type: string
+          title: Environment
+      type: object
+      required:
+      - status
+      - service
+      - environment
+      title: HealthResponse
+      description: Schema for health status output.
+    JobStatusResponse:
+      properties:
+        job_id:
+          type: string
+          title: Job Id
+          description: Unique background job identifier.
+        status:
+          type: string
+          title: Status
+          description: 'Current status: queued, running, succeeded, or failed.'
+        connector_key:
+          type: string
+          title: Connector Key
+          description: Target destination connector.
+        created_at:
+          type: string
+          title: Created At
+          description: Job creation timestamp in ISO-8601 UTC.
+        updated_at:
+          type: string
+          title: Updated At
+          description: Last update timestamp in ISO-8601 UTC.
+        duration_ms:
+          anyOf:
+          - type: number
+          - type: 'null'
+          title: Duration Ms
+          description: Execution duration in milliseconds.
+        result:
+          anyOf:
+          - additionalProperties: true
+            type: object
+          - type: 'null'
+          title: Result
+          description: Published post details on success.
+        error:
+          anyOf:
+          - additionalProperties: true
+            type: object
+          - type: 'null'
+          title: Error
+          description: Structured error payload on failure.
+      type: object
+      required:
+      - job_id
+      - status
+      - connector_key
+      - created_at
+      - updated_at
+      title: JobStatusResponse
+      description: Schema for background job status output.
+    ReadyResponse:
+      properties:
+        status:
+          type: string
+          title: Status
+        checks:
+          additionalProperties:
+            type: string
+          type: object
+          title: Checks
+      type: object
+      required:
+      - status
+      - checks
+      title: ReadyResponse
+      description: Schema for readiness probe output.
+    ValidationError:
+      properties:
+        loc:
+          items:
+            anyOf:
+            - type: string
+            - type: integer
+          type: array
+          title: Location
+        msg:
+          type: string
+          title: Message
+        type:
+          type: string
+          title: Error Type
+        input:
+          title: Input
+        ctx:
+          type: object
+          title: Context
+      type: object
+      required:
+      - loc
+      - msg
+      - type
+      title: ValidationError
+    ConnectorErrorResponse:
+      title: ConnectorErrorResponse
+      type: object
+      description: Consistent JSON error response model for connector and policy exceptions.
+      required:
+      - error_code
+      - message
+      - detail
+      properties:
+        error_code:
+          type: string
+          description: 'Machine-readable canonical error code: DEST_SPEC_VIOLATION,
+            DEST_RULE_FREQUENCY_CAP, CONNECTION_AUTH_EXPIRED, PLATFORM_RATE_LIMIT,
+            PLATFORM_QUOTA_EXHAUSTED, PLATFORM_CONTENT_REJECTED, IDEMPOTENCY_CONFLICT,
+            NETWORK_ERROR, DESTINATION_ERROR.'
+          example: DEST_SPEC_VIOLATION
+        message:
+          type: string
+          description: Human-readable explanation of the error.
+          example: Content exceeds destination length limit.
+        detail:
+          type: string
+          description: Detailed error message.
+          example: Content exceeds destination length limit.
+        error:
+          anyOf:
+          - type: string
+          - type: 'null'
+          description: Error description for backward compatibility.
+          example: Content exceeds destination length limit.
+    DestinationCatalogueItem:
+      title: DestinationCatalogueItem
+      type: object
+      description: Configuration metadata for a registered destination.
+      required:
+      - id
+      - name
+      - connector_key
+      - base_url
+      properties:
+        id:
+          type: string
+          example: discourse_dev_forum
+        name:
+          type: string
+          example: Developer Community Forum
+        connector_key:
+          type: string
+          example: discourse
+        base_url:
+          type: string
+          example: https://meta.discourse.org
+        tier:
+          type: string
+          example: core
+        policy:
+          type: object
+          properties:
+            max_length:
+              type: integer
+              example: 20000
+            allow_links:
+              type: boolean
+              example: true
+            allow_self_promotion:
+              type: boolean
+              example: true
+            require_ai_disclosure:
+              type: boolean
+              example: false
+            weekly_limit:
+              type: integer
+              example: 5
+        capabilities:
+          type: object
+          properties:
+            validate:
+              type: boolean
+              example: true
+            publish:
+              type: boolean
+              example: true
+            get_status:
+              type: boolean
+              example: true
+            delete:
+              type: boolean
+              example: true
+            fetch_metrics:
+              type: boolean
+              example: true
+    CertificationResult:
+      title: CertificationResult
+      type: object
+      description: Evidence and status record for a destination certification run.
+      required:
+      - destination_id
+      - connector_key
+      - certified
+      - timestamp
+      - checks
+      - cleanup
+      properties:
+        destination_id:
+          type: string
+          example: discourse_dev_forum
+        connector_key:
+          type: string
+          example: discourse
+        certified:
+          type: boolean
+          example: true
+        timestamp:
+          type: string
+          example: '2026-10-17T22:00:00Z'
+        duration_ms:
+          type: number
+          example: 45.2
+        evidence_file:
+          type: string
+          example: EVIDENCE/cert_discourse_dev_forum_20261017.json
+        checks:
+          type: object
+          properties:
+            policy_rules:
+              type: boolean
+              example: true
+            validation:
+              type: boolean
+              example: true
+            publish:
+              type: boolean
+              example: true
+            status_retrieval:
+              type: boolean
+              example: true
+        cleanup:
+          type: object
+          properties:
+            deleted:
+              type: boolean
+              example: true
+            within_10_min:
+              type: boolean
+              example: true
+    ConnectorManifest:
+      title: ConnectorManifest
+      type: object
+      description: Standardized manifest descriptor for a destination connector.
+      required:
+      - key
+      - version
+      - tier
+      - auth
+      - surfaces
+      - content_types
+      - specification_limits
+      - rate_limits
+      - capabilities
+      - error_map
+      properties:
+        key:
+          type: string
+          example: discourse
+        version:
+          type: string
+          example: 1.0.0
+        tier:
+          type: string
+          example: core
+        auth:
+          type: string
+          example: api_key
+        surfaces:
+          type: array
+          items:
+            type: string
+        content_types:
+          type: array
+          items:
+            type: string
+        specification_limits:
+          type: object
+        rate_limits:
+          type: object
+        capabilities:
+          type: object
+        error_map:
+          type: object
+        instance_parameter:
+          type: string
+          example: base_url
+servers:
+- url: http://localhost:8000
+  description: Local development server

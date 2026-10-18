@@ -1,0 +1,102 @@
+services:
+  api:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: incubrix_distribution_network
+    ports:
+      - "${PORT:-8000}:8000"
+    volumes:
+      - .:/app
+    environment:
+      - "APP_NAME=${APP_NAME:-Distribution: Long-Tail Destination Network}"
+      - "APP_ENV=${APP_ENV:-development}"
+      - "DEBUG=${DEBUG:-true}"
+      - "HOST=0.0.0.0"
+      - "PORT=8000"
+      - "API_V1_PREFIX=${API_V1_PREFIX:-/api/v1}"
+      - "DOCS_URL=${DOCS_URL:-/docs}"
+      - "REDOC_URL=${REDOC_URL:-/redoc}"
+      - "OPENAPI_URL=${OPENAPI_URL:-/openapi.json}"
+      - "IDEMPOTENCY_TTL_SECONDS=${IDEMPOTENCY_TTL_SECONDS:-300}"
+      - "LOG_LEVEL=${LOG_LEVEL:-INFO}"
+      - "MASTODON_BASE_URL=${MASTODON_BASE_URL:-}"
+      - "MASTODON_ACCESS_TOKEN=${MASTODON_ACCESS_TOKEN:-}"
+      - "GHOST_BASE_URL=http://ghost:2368"
+      - "LEMMY_INSTANCE_URL=http://lemmy:8536"
+    depends_on:
+      ghost:
+        condition: service_healthy
+      lemmy:
+        condition: service_healthy
+    networks:
+      - incubrix_network
+    healthcheck:
+      test: ["CMD", "python", "-c", "import urllib.request; urllib.request.urlopen('http://localhost:8000/health')"]
+      interval: 30s
+      timeout: 5s
+      retries: 3
+      start_period: 5s
+    restart: unless-stopped
+
+  ghost:
+    image: ghost:5-alpine
+    container_name: incubrix_ghost_sandbox
+    environment:
+      - url=http://ghost:2368
+      - NODE_ENV=development
+    ports:
+      - "2368:2368"
+    networks:
+      - incubrix_network
+    healthcheck:
+      test: ["CMD-SHELL", "wget -q --spider http://127.0.0.1:2368 || exit 1"]
+      interval: 15s
+      timeout: 5s
+      retries: 5
+      start_period: 25s
+    restart: unless-stopped
+
+  lemmy-db:
+    image: postgres:15-alpine
+    container_name: incubrix_lemmy_db
+    environment:
+      - POSTGRES_USER=lemmy
+      - POSTGRES_PASSWORD=lemmy_local_dev_pass
+      - POSTGRES_DB=lemmy
+    networks:
+      - incubrix_network
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U lemmy -d lemmy || exit 1"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+      start_period: 5s
+    restart: unless-stopped
+
+  lemmy:
+    image: dessalines/lemmy:0.19.5
+    container_name: incubrix_lemmy_sandbox
+    environment:
+      - RUST_LOG=warn
+    volumes:
+      - ./lemmy.hjson:/config/config.hjson:ro
+    ports:
+      - "8536:8536"
+    depends_on:
+      lemmy-db:
+        condition: service_healthy
+    networks:
+      - incubrix_network
+    healthcheck:
+      test: ["CMD-SHELL", "curl -f http://127.0.0.1:8536/api/v3/site || wget -q --spider http://127.0.0.1:8536/api/v3/site || exit 1"]
+      interval: 15s
+      timeout: 5s
+      retries: 5
+      start_period: 25s
+    restart: unless-stopped
+
+networks:
+  incubrix_network:
+    driver: bridge
+

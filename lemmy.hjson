@@ -1,0 +1,19 @@
+{
+  database: {
+    host: "lemmy-db"
+    port: 5432
+    user: "lemmy"
+    password: "lemmy_local_dev_pass"
+    database: "lemmy"
+    pool_size: 5
+  }
+  hostname: "lemmy"
+  bind: "0.0.0.0"
+  port: 8536
+  tls_enabled: false
+  setup: {
+    admin_username: "admin"
+    admin_password: "lemmy_admin_password_123"
+    site_name: "IncuBrix Local Lemmy Sandbox"
+  }
+}

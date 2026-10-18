@@ -1,0 +1,869 @@
+{
+  "openapi": "3.1.0",
+  "info": {
+    "title": "Distribution: Long-Tail Destination Network",
+    "description": "Distribution: Long-Tail Destination Network - Foundation Service",
+    "version": "0.1.0"
+  },
+  "paths": {
+    "/health": {
+      "get": {
+        "tags": [
+          "Health & Probes"
+        ],
+        "summary": "Liveness probe",
+        "description": "Return basic health status indicating the application process is running.",
+        "operationId": "get_health_health_get",
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HealthResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/ready": {
+      "get": {
+        "tags": [
+          "Health & Probes"
+        ],
+        "summary": "Readiness probe",
+        "description": "Return readiness status indicating the application is prepared to handle requests.",
+        "operationId": "get_ready_ready_get",
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ReadyResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/connector/v1/jobs/{job_id}": {
+      "get": {
+        "tags": [
+          "Connectors"
+        ],
+        "summary": "Get background job status",
+        "description": "Retrieve the execution status and results of an asynchronous connector operation.\n\n**Status States:**\n- `queued`: Accepted and awaiting execution.\n- `running`: In progress.\n- `succeeded`: Completed with published post details in `result`.\n- `failed`: Failed with error details in `error`.\n\n*Note: Job status records are stored in memory and reset upon application restart.*",
+        "operationId": "get_job_status_connector_v1_jobs__job_id__get",
+        "parameters": [
+          {
+            "name": "job_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "Job Id"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Job status retrieved successfully.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/JobStatusResponse"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found - Job identifier not found."
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/connector/v1/destinations": {
+      "get": {
+        "tags": [
+          "Connectors"
+        ],
+        "summary": "List destination catalogue",
+        "description": "List all configuration-driven destinations registered in destinations.yaml.",
+        "operationId": "list_destinations_connector_v1_destinations_get",
+        "parameters": [
+          {
+            "name": "connector_key",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "Connector Key"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "title": "Response List Destinations Connector V1 Destinations Get"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/connector/v1/destinations/{destination_id}": {
+      "get": {
+        "tags": [
+          "Connectors"
+        ],
+        "summary": "Get destination profile",
+        "description": "Retrieve destination details, rate limits, format limits, and posting rules.",
+        "operationId": "get_destination_connector_v1_destinations__destination_id__get",
+        "parameters": [
+          {
+            "name": "destination_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "Destination Id"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "title": "Response Get Destination Connector V1 Destinations  Destination Id  Get"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/connector/v1/destinations/{destination_id}/certify": {
+      "post": {
+        "tags": [
+          "Connectors"
+        ],
+        "summary": "Run destination certification probe",
+        "description": "Executes automated validation, test publish, status check, and cleanup deletion.",
+        "operationId": "certify_destination_connector_v1_destinations__destination_id__certify_post",
+        "parameters": [
+          {
+            "name": "destination_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "Destination Id"
+            }
+          },
+          {
+            "name": "simulation",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "boolean",
+              "description": "Run probe in credential-free simulation mode",
+              "default": false,
+              "title": "Simulation"
+            },
+            "description": "Run probe in credential-free simulation mode"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "title": "Response Certify Destination Connector V1 Destinations  Destination Id  Certify Post"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/connector/v1/tailor": {
+      "post": {
+        "tags": [
+          "Connectors"
+        ],
+        "summary": "Tailor content for destination",
+        "description": "Adapts content for destination surface (discussion prompts for forums, canonical links for articles, word-boundary truncation).",
+        "operationId": "tailor_content_endpoint_connector_v1_tailor_post",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "additionalProperties": true,
+                "type": "object",
+                "title": "Payload"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "title": "Response Tailor Content Endpoint Connector V1 Tailor Post"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/connector/v1/score_relevance": {
+      "post": {
+        "tags": [
+          "Connectors"
+        ],
+        "summary": "Score destination audience relevance",
+        "description": "Scores destination affinity from 1 to 5 against IncuBrix core audiences (AI, video, marketing, SaaS, creators, founders).",
+        "operationId": "score_relevance_endpoint_connector_v1_score_relevance_post",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "additionalProperties": true,
+                "type": "object",
+                "title": "Payload"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "title": "Response Score Relevance Endpoint Connector V1 Score Relevance Post"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/connector/v1/catalogue/import": {
+      "post": {
+        "tags": [
+          "Connectors"
+        ],
+        "summary": "Import destination catalogue from CSV",
+        "description": "Validates, de-duplicates, checks reachability, and imports destinations from CSV in under 5 minutes.",
+        "operationId": "import_catalogue_endpoint_connector_v1_catalogue_import_post",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "additionalProperties": true,
+                "type": "object",
+                "title": "Payload"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "title": "Response Import Catalogue Endpoint Connector V1 Catalogue Import Post"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/connector/v1/{connector_key}/manifest": {
+      "get": {
+        "tags": [
+          "Connectors"
+        ],
+        "summary": "Get connector manifest",
+        "description": "Retrieve connector metadata, supported content types, rate limits, capabilities, and error mappings.",
+        "operationId": "get_connector_manifest_connector_v1__connector_key__manifest_get",
+        "parameters": [
+          {
+            "name": "connector_key",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "Connector Key"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "title": "Response Get Connector Manifest Connector V1  Connector Key  Manifest Get"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/connector/v1/{connector_key}/{method}": {
+      "post": {
+        "tags": [
+          "Connectors"
+        ],
+        "summary": "Execute connector action",
+        "description": "Dispatches an operation to a registered destination connector with policy enforcement.\n\n**Supported Methods:**\n- `validate`: Validates content structure and destination constraints (length, non-empty text).\n- `publish`: Enforces destination policy, frequency cap, and idempotency before simulating publishing locally.\n- `get_status`: Looks up post details by ID (requires `post_id` in request body).\n- `delete`: Deletes a post by ID (requires `post_id` in request body).\n- `fetch_metrics`: Fetches normalized engagement metrics.\n- `refresh_auth`: Refreshes authorization token when supported.\n- `build_assist_pack`: Generates operator pack for assisted destinations.\n- `manifest`: Returns connector capability manifest.\n\n**Idempotency (`Idempotency-Key` header):**\n- For `publish`, pass the optional `Idempotency-Key: <unique_string>` header.\n- **First Request:** Processes publication normally and stores the response against `(connector_key, key)`.\n- **Duplicate Request:** When the same key is submitted again with the same request payload within the TTL window, the original response and original post ID are returned without creating another post or consuming frequency quota.\n- **Payload Conflict:** If the same key is reused with a different request payload, the server returns HTTP 409 Conflict with `error_code: IDEMPOTENCY_CONFLICT`.\n- **Scope & TTL:** Keys are strictly scoped per connector and expire automatically after `IDEMPOTENCY_TTL_SECONDS` (default 300s).\n- **Concurrency Safety:** Concurrent duplicate requests within the process are synchronized so only one post is created.\n\n*Important: Idempotency records are maintained entirely in-memory within this single application process; state resets when the process/container restarts and does not synchronize across multi-replica deployments.*",
+        "operationId": "handle_connector_action_connector_v1__connector_key___method__post",
+        "parameters": [
+          {
+            "name": "connector_key",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "Connector Key"
+            }
+          },
+          {
+            "name": "method",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "Method"
+            }
+          },
+          {
+            "name": "async",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "boolean"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "description": "Trigger asynchronous background execution for publish operations.",
+              "title": "Async"
+            },
+            "description": "Trigger asynchronous background execution for publish operations."
+          },
+          {
+            "name": "Prefer",
+            "in": "header",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "description": "Standard RFC 7240 header; set to 'respond-async' for background processing.",
+              "title": "Prefer"
+            },
+            "description": "Standard RFC 7240 header; set to 'respond-async' for background processing."
+          },
+          {
+            "name": "Idempotency-Key",
+            "in": "header",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "description": "Optional idempotency key for 'publish' operations to prevent duplicate posts.",
+              "examples": [
+                "idem_123e4567-e89b-12d3-a456-426614174000"
+              ],
+              "title": "Idempotency-Key"
+            },
+            "description": "Optional idempotency key for 'publish' operations to prevent duplicate posts."
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "anyOf": [
+                  {
+                    "$ref": "#/components/schemas/ConnectorRequest"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ],
+                "title": "Request"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Operation completed successfully.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "title": "Response Handle Connector Action Connector V1  Connector Key   Method  Post"
+                }
+              }
+            }
+          },
+          "202": {
+            "description": "Accepted - Publish operation accepted for background processing."
+          },
+          "400": {
+            "description": "Bad Request - Invalid method, spec violation, missing content, or missing post ID."
+          },
+          "404": {
+            "description": "Not Found - Unknown connector key or post ID not found."
+          },
+          "409": {
+            "description": "Conflict - Idempotency key reused with a different request payload."
+          },
+          "429": {
+            "description": "Too Many Requests - Frequency cap exceeded."
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "ConnectorRequest": {
+        "properties": {
+          "content": {
+            "anyOf": [
+              {
+                "additionalProperties": true,
+                "type": "object"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Content",
+            "description": "Content payload for 'validate' and 'publish'. Must contain a non-empty 'text' string.",
+            "examples": [
+              {
+                "text": "Sample announcement to publish to mock destination"
+              }
+            ]
+          },
+          "rendition": {
+            "anyOf": [
+              {
+                "additionalProperties": true,
+                "type": "object"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Rendition",
+            "description": "Appendix A rendition object (alias for content)."
+          },
+          "destination": {
+            "anyOf": [
+              {},
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Destination",
+            "description": "Target destination configuration dict or stable destination ID."
+          },
+          "connection": {
+            "anyOf": [
+              {
+                "additionalProperties": true,
+                "type": "object"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Connection",
+            "description": "Connection credentials dict or authentication tokens."
+          },
+          "post_id": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Post Id",
+            "description": "Unique post identifier required for 'get_status' and 'delete'.",
+            "examples": [
+              "mock_a1b2c3d4e5f6"
+            ]
+          },
+          "platform_post_id": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Platform Post Id",
+            "description": "Appendix A platform post ID (alias for post_id)."
+          },
+          "async": {
+            "anyOf": [
+              {
+                "type": "boolean"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Async",
+            "description": "Optional flag to request asynchronous background processing."
+          },
+          "idempotency_key": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Idempotency Key",
+            "description": "Optional idempotency key in request body."
+          },
+          "since": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Since",
+            "description": "ISO-8601 timestamp filter for 'fetch_metrics'."
+          }
+        },
+        "additionalProperties": true,
+        "type": "object",
+        "title": "ConnectorRequest",
+        "description": "Unified request body supporting both standard and Appendix A connector contracts."
+      },
+      "HTTPValidationError": {
+        "properties": {
+          "detail": {
+            "items": {
+              "$ref": "#/components/schemas/ValidationError"
+            },
+            "type": "array",
+            "title": "Detail"
+          }
+        },
+        "type": "object",
+        "title": "HTTPValidationError"
+      },
+      "HealthResponse": {
+        "properties": {
+          "status": {
+            "type": "string",
+            "title": "Status"
+          },
+          "service": {
+            "type": "string",
+            "title": "Service"
+          },
+          "environment": {
+            "type": "string",
+            "title": "Environment"
+          }
+        },
+        "type": "object",
+        "required": [
+          "status",
+          "service",
+          "environment"
+        ],
+        "title": "HealthResponse",
+        "description": "Schema for health status output."
+      },
+      "JobStatusResponse": {
+        "properties": {
+          "job_id": {
+            "type": "string",
+            "title": "Job Id",
+            "description": "Unique background job identifier."
+          },
+          "status": {
+            "type": "string",
+            "title": "Status",
+            "description": "Current status: queued, running, succeeded, or failed."
+          },
+          "connector_key": {
+            "type": "string",
+            "title": "Connector Key",
+            "description": "Target destination connector."
+          },
+          "created_at": {
+            "type": "string",
+            "title": "Created At",
+            "description": "Job creation timestamp in ISO-8601 UTC."
+          },
+          "updated_at": {
+            "type": "string",
+            "title": "Updated At",
+            "description": "Last update timestamp in ISO-8601 UTC."
+          },
+          "duration_ms": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Duration Ms",
+            "description": "Execution duration in milliseconds."
+          },
+          "result": {
+            "anyOf": [
+              {
+                "additionalProperties": true,
+                "type": "object"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Result",
+            "description": "Published post details on success."
+          },
+          "error": {
+            "anyOf": [
+              {
+                "additionalProperties": true,
+                "type": "object"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Error",
+            "description": "Structured error payload on failure."
+          }
+        },
+        "type": "object",
+        "required": [
+          "job_id",
+          "status",
+          "connector_key",
+          "created_at",
+          "updated_at"
+        ],
+        "title": "JobStatusResponse",
+        "description": "Schema for background job status output."
+      },
+      "ReadyResponse": {
+        "properties": {
+          "status": {
+            "type": "string",
+            "title": "Status"
+          },
+          "checks": {
+            "additionalProperties": {
+              "type": "string"
+            },
+            "type": "object",
+            "title": "Checks"
+          }
+        },
+        "type": "object",
+        "required": [
+          "status",
+          "checks"
+        ],
+        "title": "ReadyResponse",
+        "description": "Schema for readiness probe output."
+      },
+      "ValidationError": {
+        "properties": {
+          "loc": {
+            "items": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "integer"
+                }
+              ]
+            },
+            "type": "array",
+            "title": "Location"
+          },
+          "msg": {
+            "type": "string",
+            "title": "Message"
+          },
+          "type": {
+            "type": "string",
+            "title": "Error Type"
+          },
+          "input": {
+            "title": "Input"
+          },
+          "ctx": {
+            "type": "object",
+            "title": "Context"
+          }
+        },
+        "type": "object",
+        "required": [
+          "loc",
+          "msg",
+          "type"
+        ],
+        "title": "ValidationError"
+      }
+    }
+  }
+}

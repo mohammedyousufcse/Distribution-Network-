@@ -1,0 +1,17 @@
+services:
+  - type: web
+    name: incubrix-distribution-network
+    runtime: python
+    plan: free
+    buildCommand: pip install -r requirements.txt
+    startCommand: uvicorn app.main:app --host 0.0.0.0 --port $PORT
+    healthCheckPath: /health
+    envVars:
+      - key: APP_ENV
+        value: production
+      - key: DEBUG
+        value: false
+      - key: LOG_LEVEL
+        value: INFO
+      - key: IDEMPOTENCY_TTL_SECONDS
+        value: 300
