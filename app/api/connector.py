@@ -469,10 +469,24 @@ def score_relevance_endpoint(payload: Dict[str, Any]) -> Any:
 )
 async def import_catalogue_endpoint(payload: Dict[str, Any]) -> Any:
     """Import and validate destinations from CSV with row-by-row reporting."""
+    from pathlib import Path
     from app.services.catalogue_import_service import catalogue_import_service
     csv_text = payload.get("csv_content") or payload.get("csv") or ""
     filename = payload.get("filename", "upload.csv")
     mock_mode = payload.get("mock_reachability", True)
+
+    csv_path = payload.get("csv_path") or payload.get("file_path") or payload.get("path")
+    if csv_path and not csv_text:
+        p = Path(str(csv_path))
+        if p.exists():
+            csv_text = p.read_text(encoding="utf-8", errors="replace")
+            filename = p.name
+        else:
+            raise HTTPException(
+                status_code=status.HTTP_404_NOT_FOUND,
+                detail=f"CSV file at path '{csv_path}' was not found.",
+            )
+
     return await catalogue_import_service.import_csv_content(csv_text, filename=filename, mock_reachability=mock_mode)
 
 
