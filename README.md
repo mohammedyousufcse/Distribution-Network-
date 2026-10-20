@@ -1,4 +1,4 @@
-#Distribution: Long-Tail Destination Network
+# Distribution: Long-Tail Destination Network
 
 A production-grade, asynchronous content distribution gateway built with **Python 3.11** and **FastAPI**, containerized using **Docker Compose**.
 
