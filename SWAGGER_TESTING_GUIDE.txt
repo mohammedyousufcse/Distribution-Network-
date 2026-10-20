@@ -1,5 +1,5 @@
 ================================================================================
-INCUBRIX DISTRIBUTION NETWORK — SWAGGER UI COMPLETE TESTING GUIDE
+DISTRIBUTION NETWORK — SWAGGER UI COMPLETE TESTING GUIDE
 ================================================================================
 
 Open your browser and navigate to:
